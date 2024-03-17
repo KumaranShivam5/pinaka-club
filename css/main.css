@@ -356,9 +356,13 @@ button{
     max-height: unset;
     height: 25vh;
   }
-
-
-   
+ 
+ p{
+   font-size: 0.9rem;
+ }
+   h3{
+     
+   }
     
   }
   

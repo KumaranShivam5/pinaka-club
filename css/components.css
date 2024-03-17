@@ -115,4 +115,10 @@
     transform: unset;
     width: 50%;
   }
+
+  .cards-section-header{
+    font-size: 1rem;
+    background: unset;
+    border-bottom: 1px solid #a1272a;
+  }
 }

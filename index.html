@@ -13,18 +13,25 @@
     <div class="main-container">
         <div class="top-bar">
             <div class="top-logo">
-                <img src="images/logo/rect-logo-dark.svg" alt="">
+              <img src="images/logo/rect-logo-dark.svg" alt="">
             </div>
-            <div class="right-menu-container">
-                <span class="right-menu-item">Home</span>
-                <span class="right-menu-item">About</span>
-                <span class="right-menu-item">Facilities</span>
-                <span class="right-menu-item">Events</span>
-                <span class="right-menu-item">Shooters</span>
-                <span class="right-menu-item">Register</span>
-                <span class="right-menu-item">Contact</span>
+            <div class="breadcrumb-toggle">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
             </div>
-        </div>
+            <div class="breadcrumb-menu">
+              <span class="breadcrumb-item">Home</span>
+              <span class="breadcrumb-item">About</span>
+              <span class="breadcrumb-item">Facilities</span>
+              <span class="breadcrumb-item">Events</span>
+              <span class="breadcrumb-item">Shooters</span>
+              <span class="breadcrumb-item">Register</span>
+              <span class="breadcrumb-item">Contact</span>
+            </div>
+          </div>
+          
+          
         <div class="hero-image">
             <img src="images/logo/large-logo-dark.svg" alt="">
         </div>
@@ -97,6 +104,17 @@
 
         </div>
     </div>
-<script src="js/main.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const breadcrumbToggle = document.querySelector('.breadcrumb-toggle');
+  const breadcrumbMenu = document.querySelector('.breadcrumb-menu');
+
+  breadcrumbToggle.addEventListener('click', function() {
+    breadcrumbMenu.classList.toggle('active'); // Toggle the 'active' class
+  });
+});
+
+    </script>
+<!-- <script src="js/main.js"></script> -->
 </body>
 </html>

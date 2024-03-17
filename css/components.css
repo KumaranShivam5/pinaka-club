@@ -10,8 +10,8 @@
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     transform: skewX(-200deg);
-  }
-  
+  } 
+    
   .skewed-button:before {
     content: '';
     position: absolute;
@@ -26,7 +26,8 @@
   }
   
   .skewed-button:hover {
-    background-color: #1976D2; /* Hover background color */
+    background-color: white; /* Hover background color */
+    color: black;
   }
   
   .skewed-button:hover:before {
@@ -41,10 +42,10 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.5); /* Focus shadow color */
   }
-  
+   
 
 .primary-action{
-  background-color: #ff02028c;
+  background-color: #a1272a;
 }
 
 
@@ -54,14 +55,14 @@
   border: 1px solid #ffffff36;
   border-radius: 5px;
 }
-
+ 
 .cards-section-header{
     background-color: #a1272a;
     color:white;
-  padding: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem
 }
 
 
@@ -100,4 +101,18 @@
 .card-text{
 
     
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .skewed-button {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 100;
+    transform: unset;
+    width: 50%;
+  }
 }

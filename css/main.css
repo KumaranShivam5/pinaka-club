@@ -46,23 +46,37 @@ body{
     background-attachment: fixed;
     overflow-wrap: break-word;
 }
- 
+   
 p {
     margin: 1rem;
     line-height: 1.5rem;
+}
+ 
+
+.hero-title-h1{
+  font-family: monospace;
+  font-size: 2rem;
+  color: #ffc05a;
+} 
+
+.hero-title-h2{
+    font-family: monospace;
+    font-size: 1rem;
+    color: white;
 }
 
 header {
     /*! background-color: #333; */
     color: #fff;
     /*! padding: 20px; */
-    text-align: center;
+    /* text-align: center; */
   }
   
   .heading-placeholder {
     font-size: 2em;
     padding: 1rem;
     word-break: break-all;
+    color: #ffc05a;
   }
   
   section {
@@ -135,6 +149,7 @@ header {
     display: flex;
     grid-area: hero-title;
     margin: 1rem;
+    flex-direction: column;
 }
 
 .hero-image{

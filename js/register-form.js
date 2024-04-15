@@ -12,12 +12,13 @@ function submitForm() {
     // Configure the AJAX request
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
+    uid = getCookie('user_id')
 
     // Handle successful response
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             // Successful response
-            showStatusModal('success', 'Thank you for registration');
+            showStatusModal('success', 'Thank you for registration \n Your User ID is:\n <b>'+uid+' </b>\n We will contact you shortly. \n Take a screenshot of ths user ID for reference. and visit the Club for getting physical ID card <a href="index.html">PINAKA Home</a>');
         } else {
             // Error response
             showStatusModal('error', 'Error occurred. Please try again.');
@@ -30,7 +31,7 @@ function submitForm() {
     };
 
     // Convert form data to JSON and send the request
-    xhr.send(JSON.stringify({"Uname" : formData}));
+    xhr.send(JSON.stringify({"uid" : uid , 'enquiry-details' : formData}));
 }
 
 // Function to get form data as JSON object
@@ -54,7 +55,7 @@ function showStatusModal(status, message) {
     const statusMessage = document.getElementById('statusMessage');
     const retryButton = document.getElementById('retryButton');
 
-    statusMessage.textContent = message;
+    statusMessage.innerHTML = message;
 
     if (status === 'success') {
         retryButton.style.display = 'none';

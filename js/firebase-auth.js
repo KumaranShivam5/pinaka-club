@@ -26,13 +26,17 @@
 					myStorage2 = window.sessionStorage;
 					myStorage2.setItem("contact", authResult.user.phoneNumber);
 					myStorage2.setItem("uid", authResult.user.uid);
-                    return false;
+                    setCookie('user_id', authResult.user.uid, 30);
+                    // setCookie('user_contact', authResult.user.phoneNumber, 30);
                     window.location.href = 'login.html'
+                    return false;
                 },
                 uiShown: function () {
                     // The widget is rendered.
                     // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
+                    // window.location.href = 'login.html'
+
+                    // document.getElementById('loader').style.display = 'none';
                 }
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.

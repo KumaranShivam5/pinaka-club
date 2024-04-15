@@ -1,0 +1,124 @@
+
+  /* Adjust layout for small screens */
+  @media screen and (max-width: 768px) {
+
+
+
+  .skewed-button {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 100;
+    transform: unset;
+    width: 50%;
+  }
+
+  .cards-section-header{
+    font-size: 1rem;
+    background: unset;
+    border-bottom: 1px solid #a1272a;
+  }
+
+    .hero-image{
+      margin-top: 3rem;
+    }
+
+    body{
+      background-position-y: 25vh;
+    }
+    .top-logo img {
+      width: 60px;
+    }
+  
+    .top-bar{
+      position:fixed;
+      width: calc(100vw - 1rem);
+      padding: 1rem 0rem 1rem 1rem;
+      z-index: 1;
+      background-color: black;
+    }
+    
+    .top-logo {
+      order: -1; /* Move logo to the beginning */
+    }
+  
+    .breadcrumb-menu {
+      display: none; /* Initially hide menu items */
+      flex-direction: column; /* Display items in a column */
+      background-color: #333; /* Change background color as needed */
+      padding: 1rem; /* Adjust padding */
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .breadcrumb-menu.active {
+      display: flex; /* Show menu items when active */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      right: 0;
+      height:100%;
+      z-index:100;
+      
+    }
+
+    .breadcrumb-menu.active .breadcrumb-item{
+      margin:1rem;
+      font-size: 1.5rem;
+    }
+  
+    .breadcrumb-toggle {
+      display: flex; /* Show breadcrumb toggle */
+      cursor: pointer;
+      flex-direction: column;
+      z-index: 1111;
+      margin-right: 1rem;
+    }
+
+
+    .main-container{min-width:100vw;width:100vw;max-width:unset;grid-template-areas:
+"top-bar     top-bar    top-bar    "
+"hero-image    hero-image  hero-image "
+"hero-title    hero-title  hero-title"
+"hero-action    hero-action  hero-action"
+"gallery      gallery   gallery    "
+"news-and-events news-and-events     news-and-events "
+"about about    about"
+"social          social     social"
+"footer          footer     footer";/* grid-gap: 0rem; */}
+
+    .hero-image img {
+      width: 70vw;
+    }
+
+    .hero-action{
+      justify-content: center;
+    }
+  .hero-title{
+    display:none;
+  }
+
+  .gallery{
+    padding: 0rem;
+    justify-content: flex-start;
+  }
+  .gallery-img-item {
+    padding: 0.5rem;
+  }
+    
+  .gallery-img-item img{
+    max-height: unset;
+    height: 25vh;
+  }
+ 
+ p{
+   font-size: 0.9rem;
+ }
+   h3{
+     
+   }
+    
+
+
+
+}
+  

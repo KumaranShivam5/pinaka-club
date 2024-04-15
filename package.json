@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "modaal": "^0.4.4",
+    "normalize.css": "^8.0.1"
+  },
+  "name": "pinaka",
+  "version": "1.0.0",
+  "description": "website or pinaka",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KumaranShivam5/pinaka-club.git"
+  },
+  "keywords": [
+    "rifle",
+    "club",
+    "chatra",
+    "shooting",
+    "national",
+    "rifle",
+    "shooting"
+  ],
+  "author": "kumaran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KumaranShivam5/pinaka-club/issues"
+  },
+  "homepage": "https://github.com/KumaranShivam5/pinaka-club#readme"
+}

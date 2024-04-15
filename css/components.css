@@ -105,20 +105,3 @@
 
 
 
-
-@media screen and (max-width: 768px) {
-
-  .skewed-button {
-    padding: 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 100;
-    transform: unset;
-    width: 50%;
-  }
-
-  .cards-section-header{
-    font-size: 1rem;
-    background: unset;
-    border-bottom: 1px solid #a1272a;
-  }
-}

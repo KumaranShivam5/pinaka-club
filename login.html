@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+       var login_deets = window.sessionStorage
+       if(window.sessionStorage.length < 2){
+        window.location.href = 'OTP.html'
+       }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-content-centre">
+                <span class="close">&times;</span>
+            <p id="statusMessage">Submitting form...</p>
+            <button id="retryButton" style="display: none;">Retry</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="login-grid">
+            <div class="logo">
+                <img src="images/logo/large-logo-dark.svg" alt="Club Logo">
+            </div>
+            <div class="form-container">
+                <h4>Member Login</h4>
+                <!-- Modal -->
+
+
+                <form id="studentForm">
+                    <div class="input-field">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="number" id="age" name="age" required>
+                        <label for="age">Age</label>
+                    </div>
+                    
+                    <div class="input-field">
+                        <select id="interestedCategory" name="interestedCategory">
+                            <option value="" disabled selected>Select Interested Category</option>
+                            <option value="10mAirRifle">10m Air Rifle</option>
+                            <option value="pistol">Pistol</option>
+                        </select>
+                        <label for="interestedCategory">Interested Category</label>
+                    </div>
+                    <div class="input-field">
+                        <select id="interestedCourse" name="interestedCourse">
+                            <option value="" disabled selected>Select the course</option>
+                            <option value="Foundation">Foundation</option>
+                            <option value="Bull's Eye">Bulls Eye</option>
+                        </select>
+                        <label for="interestedCategory">Interested course</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+                        <label for="contactNumber">Contact Number (10-digit)</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="address" class="materialize-textarea" name="address" required></textarea>
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="input-field-inline">
+                        <p>
+                            <label>
+                                <input type="checkbox" id="isStudent" name="isStudent">
+                                <span>Are you a student?</span>
+                            </label>
+                        </p>
+                        <div class="input-field" id="schoolCollegeInput" style="display: none;">
+                            <select id="schoolCollege" name="schoolCollege">
+                                <option value="" disabled selected>Select School/College</option>
+                                <option value="school1">School 1</option>
+                                <option value="school2">School 2</option>
+                                <option value="school3">School 3</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="schoolCollege">School/College</label>
+                        </div>
+                    </div>
+                    <div class="input-field" id="otherSchoolInput" style="display: none;">
+                        <input type="text" id="otherSchool" name="otherSchool">
+                        <label for="otherSchool">Specify School/College</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" onsubmit="">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Materialize components
+            M.AutoInit();
+
+            // Show/hide school/college input based on checkbox
+            const isStudentCheckbox = document.getElementById('isStudent');
+            const schoolCollegeInput = document.getElementById('schoolCollegeInput');
+            const otherSchoolInput = document.getElementById('otherSchoolInput');
+
+            isStudentCheckbox.addEventListener('change', function() {
+                if (isStudentCheckbox.checked) {
+                    schoolCollegeInput.style.display = 'block';
+                } else {
+                    schoolCollegeInput.style.display = 'none';
+                    otherSchoolInput.style.display = 'none';
+                }
+            });
+
+            // Show/hide other school input based on dropdown selection
+            const schoolCollegeDropdown = document.getElementById('schoolCollege');
+            schoolCollegeDropdown.addEventListener('change', function() {
+                if (schoolCollegeDropdown.value === 'other') {
+                    otherSchoolInput.style.display = 'block';
+                } else {
+                    otherSchoolInput.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="js/register-form.js"></script>
+</body>
+</html>

@@ -32,9 +32,9 @@
               <img src="images/logo/rect-logo-dark.svg" alt="">
             </div>
             <div class="breadcrumb-toggle">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
+              <div class="bar bar1"></div>
+              <div class="bar bar2"></div>
+              <div class="bar bar3"></div>
             </div>
             <div class="breadcrumb-menu">
               <a class="breadcrumb-item" href="index.html">Home</a>
@@ -274,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   breadcrumbToggle.addEventListener('click', function() {
     breadcrumbMenu.classList.toggle('active'); // Toggle the 'active' class
+    breadcrumbToggle.classList.toggle('toggle-btn-active'); // Toggle the 'active' class
   });
 });
 

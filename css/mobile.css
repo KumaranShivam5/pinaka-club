@@ -3,7 +3,9 @@
   @media screen and (max-width: 768px) {
 
 
-
+  .heading-placeholder{
+    font-size: 2rem;
+  }
   .skewed-button {
     padding: 0.8rem;
     font-size: 0.8rem;
@@ -11,7 +13,7 @@
     transform: unset;
     width: 50%;
   }
-
+ 
   .cards-section-header{
     font-size: 1rem;
     background: unset;
@@ -48,8 +50,12 @@
       padding: 1rem; /* Adjust padding */
       align-items: center;
       justify-content: center;
+      width: 0;
+      transition: 0.5s all ease-in;
+      overflow: hidden;
+      height: 0;
     }
-  
+    
     .breadcrumb-menu.active {
       display: flex; /* Show menu items when active */
       position: fixed;
@@ -58,20 +64,36 @@
       right: 0;
       height:100%;
       z-index:100;
-      
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, black, #232323b8);
+      backdrop-filter: blur(2px);
     }
-
+ 
     .breadcrumb-menu.active .breadcrumb-item{
       margin:1rem;
       font-size: 1.5rem;
     }
-  
+   
     .breadcrumb-toggle {
       display: flex; /* Show breadcrumb toggle */
       cursor: pointer;
       flex-direction: column;
       z-index: 1111;
       margin-right: 1rem;
+    }
+
+    .toggle-btn-active .bar{
+      transition:all 0.3s ease-in;
+    }
+    .toggle-btn-active .bar1{
+      transform: translateY(8px) rotateZ(45deg) translateX(0px);
+    }
+    .toggle-btn-active .bar2{
+      display:none;
+    }
+    .toggle-btn-active .bar3{
+      transform: rotateZ(-45deg) translateY(-3px) translateX(1px);
     }
 
 

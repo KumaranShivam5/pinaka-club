@@ -11,7 +11,7 @@
 	background-color: #3e3e3e;
 	border:0;
 }
-
+ 
 *::-webkit-scrollbar
 {
 	width: 5px;
@@ -44,9 +44,10 @@ body{
     background-position-x: center;
     background-size: contain;
     background-attachment: fixed;
-    overflow-wrap: break-word;
-}
-    
+    overflow-wrap: normal;
+    word-break: keep-all;
+} 
+     
 p {
     margin: 1rem;
     line-height: 1.5rem;
@@ -76,7 +77,7 @@ header {
   .heading-placeholder {
     font-size: 3rem;
     padding: 1rem;
-    word-break: break-all;
+    word-break: auto-phrase;
     color: #ffc05a;
   }
   
@@ -258,7 +259,7 @@ button{
   /* padding-top: 1rem; */
   /* padding-bottom: 1rem; */
 } 
- 
+  
 .footer .contact{
   grid-area: contact;
   display: flex;
@@ -266,6 +267,11 @@ button{
   padding: 1rem;
   /* align-items: center; */
   justify-content: center;
+  border-image: linear-gradient(0deg, rgb(161 39 42 / 0%) 0%, rgb(255 51 51 / 34%) 70%, rgb(253 181 65 / 0%) 100%) 1;
+  border-style: solid;
+  border-top: 0;
+  /* border-left: 5px; */
+  /* border-right: 5px; */
 }
 .footer .maps{
   grid-area: maps;
@@ -290,7 +296,10 @@ iframe{
  font-size: 3rem;
  color: brown;
  transition: all 0.3s ease-in;
-	cursor:pointer;
+ cursor:pointer;
+ display: flex !important;
+ align-items: center;
+ justify-content: center;
 }
  
 .fa-brands:hover{
@@ -326,10 +335,10 @@ iframe{
     color: white; /* Change text color as needed */
     /* position: sticky; */
   }
-  
+   
   .top-logo img {
     max-width: 100px; /* Adjust logo size */
-  }
+  } 
   
   .breadcrumb-toggle {
     display: none; /* Initially hide breadcrumb toggle */
@@ -337,7 +346,7 @@ iframe{
   
   .bar {
     width: 25px;
-    height: 1px;
+    height: 2px;
     background-color: #ff5050;
     margin: 4px 0;
   }

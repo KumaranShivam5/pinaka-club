@@ -104,7 +104,7 @@
   .gallery-img-item {
     padding: 0.5rem;
   }
-    
+     
   .gallery-img-item img{
     max-height: unset;
     height: 25vh;
@@ -116,9 +116,29 @@
    h3{
      
    }
-    
 
+ 
+     
+  .footer{
+    grid-template-areas:
+      "contact"
+      "social"
+      "maps"
+      "cr";
+    grid-template-columns: unset;
+  }
 
+  .social-icons{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+  }
+    .fa-brands{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
 }
   

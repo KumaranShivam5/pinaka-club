@@ -11,7 +11,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     transform: skewX(-200deg);
   } 
-    
+     
   .skewed-button:before {
     content: '';
     position: absolute;
@@ -52,8 +52,9 @@
 .cards-section-wrapper{
     display: flex;
     flex-direction: column;
-  border: 1px solid #ffffff36;
-  border-radius: 5px;
+    /* border: 1px solid #ffffff36; */
+    border-radius: 5px;
+    background: #512e4145;
 }
  
 .cards-section-header{
@@ -105,3 +106,7 @@
 
 
 
+.non-skew{
+  transform: unset;
+  /* border-radius: 1rem; */
+}

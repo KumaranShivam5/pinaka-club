@@ -75,7 +75,7 @@ header {
   }
   
   .heading-placeholder {
-    /* font-size: 3rem; */
+    font-size: 3rem;
     padding: 1rem;
     word-break: auto-phrase;
     color: #ffc05a;

@@ -149,7 +149,7 @@
         "bottom bottom bottom";
     grid-template-columns: 1fr 1fr 1fr; 
 }
- 
+  
 .card-fs img{
     grid-area: img;
     width: 20vw;
@@ -158,6 +158,7 @@
     margin-bottom: 10px;
     border-radius: 0.5rem;
     object-fit: cover;
+    object-position: top;
 }
 
 .card-fs .hr{

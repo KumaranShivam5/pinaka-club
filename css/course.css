@@ -1,0 +1,83 @@
+.course-card{background-size: contain;background-repeat: no-repeat;display: grid;background-position-y: bottom;min-height: 20vh;margin-bottom: 5vh;border-image: linear-gradient(90deg, rgb(161 39 42 / 0%) 0%, rgb(252 254 255 / 31%) 70%, rgb(253 181 65 / 0%) 100%) 1;/* border-top: 5px solid white; */border-style: solid;/* border-bottom: 0; */padding-top: 3rem;padding-bottom: 3rem;}
+
+.course-card h3{font-size: 2rem;padding: 0rem 0rem 1rem 0rem;}
+
+.course-card ul{list-style-position: inside;line-height: 1.5rem;/* background: linear-gradient(-45deg, black, transparent); */padding: 1rem;}
+.course-card ul li{
+ line-height: 2rem;
+} 
+
+.found-course{
+    background-image: url('../images/components/course-found.png');
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    background-size: contain;
+    background-position-x: right;
+    background-position-y: -200%;
+}
+ 
+.found-course ul{
+    grid-column: 1;
+    /* background: linear-gradient(-45deg, black, #000000ed); */
+    /* padding: 1rem; */
+}
+
+.found-course h3{
+    
+} 
+
+.BE-course{
+    background-image: url('../images/components/course-be.png');
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    /* background-position-y: -70%; */
+    /* background-size: 35%; */
+    background-position-x: left;
+}
+
+.BE-course ul{
+    grid-column: 2;
+}
+
+.BE-course h3{
+    grid-column: 2;
+}
+
+.ym-course{
+    background-image: url('../images/components/course-yoga.png');
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr auto;
+    /* background-position-y: -70%; */
+    /* background-size: 35%; */
+    background-position-x: right;
+}
+
+.ym-course ul{
+    grid-column: 1;
+}
+
+.ym-course h3{
+    
+}
+
+.course-card h3{
+}
+
+@media screen and (max-width: 768px) {
+    .course-card{
+        grid-template-columns: 1fr;
+        background-size: 54%;
+        background-position: bottom right;
+        background-color: linear-gradient(-45deg, black, #000000ed);
+        padding-left: 0;
+        padding-right: 0;
+    } 
+    .course-card ul{
+        background: linear-gradient(-45deg, #000000d4, transparent);
+        padding: 1rem 2rem 1rem 2rem;
+        text-align: left;
+    }
+    .course-card h3{
+        font-size: 1.5rem;
+    }
+} 

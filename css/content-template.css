@@ -7,7 +7,7 @@
     grid-template-areas:
         "top-bar     top-bar    top-bar    "
         "hero-image    hero-image  hero-title "
-        "hero-image    hero-image  hero-action"
+        "hero-image    hero-image  hero-action" 
         "hr hr hr"
         "news-and-events about     about "
         "news-and-events contact    contact"
@@ -69,6 +69,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
     overflow: hidden;
+    cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -126,7 +127,7 @@
     }
 
 }
-
+ 
 
 .card-container{
 
@@ -221,11 +222,15 @@
 .card-fs .card-content ul{
 
 }
+ 
+ 
+
+.section-list{list-style-type: none;display: grid;}
 
 
+.section-list .card{display: flex;align-items: center;justify-content: center;background: linear-gradient(152deg, #193c499c, black);/* width: 100%; */min-height: 4rem;padding: 2rem;border: 1px solid #5374747a;box-shadow: 1px 2px 14px 0px #3c1d1d00;font-weight: bold;text-align: center;line-height: 1.5rem;/* font-family: monospace; *//* font-size: 1.2rem; */flex-direction: column;margin: unset;}
 
-
-
+ 
 @media screen and (max-width: 768px)
 { 
     .hr{
@@ -244,6 +249,7 @@
         grid-gap: 0.5rem;
         max-width: 100vw;
         /* overflow-x: hidden; */
+        grid-template-columns: 1fr;
     }
     .card-fs{
         grid-template-areas:
@@ -282,5 +288,11 @@
     }
     .card-fs .details2{
         
+    }
+    .section-list{
+        grid-template-columns: 1fr !important;
+    }
+    .section-list .img-card{
+        grid-column: unset !important;
     }
 }

@@ -1,0 +1,118 @@
+.facilities-section{
+
+}
+
+.facilities-section .heading-placeholder{
+    width: 100%; 
+    /* height: 33rem; */
+    /* background-image: url('../images/facility.jpeg'); */
+    /* background-position: 10% center; */
+    font-size: 3rem;
+}
+
+.section-list .img-card{
+    display: flex;
+    grid-column: 1 / span 3;
+    background-repeat: no-repeat;
+} 
+ 
+  
+.section-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-gap: 1rem;
+}
+.facility-list .large-img-card{background: url('../images/facility.jpeg');background-position: 0% 58%;background-size: 110%;background-repeat: no-repeat;min-height: 40vh;padding: 0;align-items: center;justify-content: flex-start;grid-column: 1 / span 4;flex-direction: row;}
+.facility-list .large-img-card p{
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, black, transparent);
+    margin-left: -1rem;
+    padding-left: 3rem;
+    padding: 4rem;
+    width: 36%;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+
+.facility-list .small-img-card{
+    
+}
+
+.facility-list .mid-img-card{
+    background: url(../images/facility.jpeg);
+    background-position: -20% 58%;
+    background-size: 110%;
+    background-repeat: no-repeat;
+    min-height: 40vh;
+    padding: 0;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.facility-list{}
+.section-list .card{
+
+}
+
+.section-list .rifle-card{
+    background-image: url('../images/components/rifle.png');
+    background-size: contain;
+    min-height: 5vh;
+    grid-column: 1 / span 2;
+    background-size: contain;
+} 
+ 
+.mid-img-card p{
+    width: 100%;
+    background: linear-gradient(90deg, transparent, black, transparent);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.section-list .pistol-card{
+    background-image: url('../images/components/pistol.png');
+    background-size: contain;
+    grid-column: 3 / span 2;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .section-list .img-card{
+        width: 100%;
+        min-height: 15vh;
+    }
+    .section-list .img-card p{
+    padding: 0rem;
+    width: 100%;
+    margin: unset;
+    padding-left: 1rem;
+    height: 6rem;
+} 
+    .section-list .card{
+        padding: unset;
+        width: 100%;
+        padding: 1rem 0rem 1rem 0rem;
+        /* border-radius: unset; */
+        background-size: contain;
+        min-height: 15vh;
+    }
+    .section-list .large-img-card{
+    background-size: cover;
+}
+    .facilities-section .heading-placeholder{
+        font-size: 2rem;
+    }
+} 

@@ -25,10 +25,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mobile.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-    <div class="main-container">
+    <div class="main-container" id="index-js-area">
         <div class="top-bar">
             <div class="top-logo">
                 <img src="images/logo/rect-logo-dark.svg" alt="">
@@ -72,10 +76,8 @@
         </div>
 
         <div class="gallery">
-            <div class="gallery-img-item"><img src="images/gallery/g1.webp" alt=""></div>
-            <div class="gallery-img-item"><img src="images/gallery/g2.webp" alt=""></div>
-            <div class="gallery-img-item"><img src="images/gallery/g3.jpg" alt=""></div>
-            <div class="gallery-img-item"><img src="images/gallery/g4.jpg" alt=""></div>
+            <cardrow v-for="el in card_list" :key="el.bID" :crow="el" @go="go_to_page(el.bID)"></cardrow>
+            
         </div>
         <div class="about">
             <header>
@@ -145,25 +147,10 @@
                     News and Events
                 </div>
                 <div class="cards-wrapper news-cards-wrapper">
-                    <div class="cards news-card">
-                        <h3 class="card-title">
-                            Inaugration
-                        </h3>
-                        <p class="card-text">
-                            With immense pride, we inaugurate the Pinaka Rifle Shooting Club. Thank you for joining us
-                            on this exciting journey. Together, let's aim high and shoot for excellence.
-                        </p>
-                    </div>
-                    <div class="cards news-card">
-                        <h3 class="card-title">
-                            Championship
-                        </h3>
-                        <p class="card-text">
-                            Join us for the ultimate showdown at the Pinaka Rifle Shooting Club Championship! Prepare to
-                            witness precision, determination, and the thrill of competition. Let's aim for victory
-                            together!
-                        </p>
-                    </div>
+
+                    <newsrow v-for="el in news_list" :key="el.bID" :nrow="el" @go="go_to_page(el.bID)"></newsrow>
+
+                    
                 </div>
             </div>
 
@@ -206,6 +193,7 @@
         </div>
 
     </div>
+    <script src="js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const breadcrumbToggle = document.querySelector('.breadcrumb-toggle');

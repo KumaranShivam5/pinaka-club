@@ -1,5 +1,5 @@
-BASE_URL = 'http://0.0.0.0:8000'
-// BASE_URL = "https://pinaka.pythonanywhere.com"
+// BASE_URL = 'http://0.0.0.0:8000'
+BASE_URL = "https://pinaka.pythonanywhere.com"
 
 Vue.component(
     'cardrow', {

@@ -1,166 +1,36 @@
+/* =========================================================
+   PINAKA — mobile overrides
+   ========================================================= */
 
-  /* Adjust layout for small screens */
-  @media screen and (max-width: 768px) {
+@media (max-width: 880px){
+  .top-bar{ padding: 0.9rem 1.2rem; }
+  .top-logo img{ width: 68px; }
 
+  .hero-image{ padding: 2.2rem 1.2rem 0.6rem; }
+  .hero-image img{ max-height: 24vh; }
+  .hero-title{ padding: 0 1.2rem 1.1rem; }
+  .hero-action{ padding: 0 1.2rem 2.4rem; }
+  .skewed-button{ width: 100%; text-align: center; }
 
-  .heading-placeholder{
-    font-size: 2rem;
-  }
-  .skewed-button {
-    padding: 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 100;
-    transform: unset;
-    width: 50%;
-  }
- 
-  .cards-section-header{
-    font-size: 1rem;
-    background: unset;
-    border-bottom: 1px solid #a1272a;
-  }
+  .section{ padding: 3rem 0; }
+  .section-inner, .about, .footer{ padding-left: 1.2rem; padding-right: 1.2rem; }
 
-    .hero-image{
-      margin-top: 3rem;
-    }
+  .gallery{ padding: 1.1rem 1.2rem; }
+  .gallery-img-item img{ width: 220px; max-height: 170px; }
 
-    body{
-      background-position-y: 25vh;
-    }
-    .top-logo img {
-      width: 60px;
-    }
-  
-    .top-bar{
-      position:fixed;
-      width: calc(100vw - 1rem);
-      padding: 1rem 0rem 1rem 1rem;
-      z-index: 1;
-      background-color: black;
-    }
-    
-    .top-logo {
-      order: -1; /* Move logo to the beginning */
-    }
-  
-    .breadcrumb-menu {
-      display: none; /* Initially hide menu items */
-      flex-direction: column; /* Display items in a column */
-      background-color: #333; /* Change background color as needed */
-      padding: 1rem; /* Adjust padding */
-      align-items: center;
-      justify-content: center;
-      width: 0;
-      transition: 0.5s all ease-in;
-      overflow: hidden;
-      height: 0;
-    }
-    
-    .breadcrumb-menu.active {
-      display: flex; /* Show menu items when active */
-      position: fixed;
-      width: 100%;
-      top: 0;
-      right: 0;
-      height:100%;
-      z-index:100;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(45deg, black, #232323b8);
-      backdrop-filter: blur(2px);
-    }
- 
-    .breadcrumb-menu.active .breadcrumb-item{
-      margin:1rem;
-      font-size: 1.5rem;
-    }
-   
-    .breadcrumb-toggle {
-      display: flex; /* Show breadcrumb toggle */
-      cursor: pointer;
-      flex-direction: column;
-      z-index: 1111;
-      margin-right: 1rem;
-    }
-
-    .toggle-btn-active .bar{
-      transition:all 0.3s ease-in;
-    }
-    .toggle-btn-active .bar1{
-      transform: translateY(8px) rotateZ(45deg) translateX(0px);
-    }
-    .toggle-btn-active .bar2{
-      display:none;
-    }
-    .toggle-btn-active .bar3{
-      transform: rotateZ(-45deg) translateY(-3px) translateX(1px);
-    }
-
-
-    .main-container{min-width:100vw;width:100vw;max-width:unset;grid-template-areas:
-"top-bar     top-bar    top-bar    "
-"hero-image    hero-image  hero-image "
-"hero-title    hero-title  hero-title"
-"hero-action    hero-action  hero-action"
-"gallery      gallery   gallery    "
-"news-and-events news-and-events     news-and-events "
-"about about    about"
-"social          social     social"
-"footer          footer     footer";/* grid-gap: 0rem; */}
-
-    .hero-image img {
-      width: 70vw;
-    }
-
-    .hero-action{
-      justify-content: center;
-    }
-  .hero-title{
-    display:none;
-  }
-
-  .gallery{
-    padding: 0rem;
-    justify-content: flex-start;
-  }
-  .gallery-img-item {
-    padding: 0.5rem;
-  }
-     
-  .gallery-img-item img{
-    max-height: unset;
-    height: 25vh;
-  }
- 
- p{
-   font-size: 0.9rem;
- }
-   h3{
-     
-   }
-
- 
-     
   .footer{
-    grid-template-areas:
-      "contact"
-      "social"
-      "maps"
-      "cr";
-    grid-template-columns: unset;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
   }
+  .footer .social{ align-items: flex-start; }
 
-  .social-icons{
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-  }
-    .fa-brands{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .news-cards-wrapper{ grid-template-columns: 1fr; padding: 1.1rem; }
+  .cards-section-header{ padding: 1rem 1.2rem; }
 
+  .heading-placeholder{ font-size: 1.9rem; }
 }
-  
+
+@media (max-width: 520px){
+  .hero-title-h1{ font-size: 1.7rem; }
+}

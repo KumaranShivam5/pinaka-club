@@ -1,299 +1,76 @@
+/* =========================================================
+   PINAKA — shared sub-page template
+   (facilities / course / contact / members / OTP)
+   ========================================================= */
 
-.main-container{ 
-    max-width: 70vw;
-    min-width: 50vw;
-    /* min-height: 100vh; */
-    display: grid;
-    grid-template-areas:
-        "top-bar     top-bar    top-bar    "
-        "hero-image    hero-image  hero-title "
-        "hero-image    hero-image  hero-action" 
-        "hr hr hr"
-        "news-and-events about     about "
-        "news-and-events contact    contact"
-        "footer          footer     footer";
-    grid-template-columns: 2fr 3fr 3fr;
-    /* padding-top: 10vh; */
-    grid-gap: 1rem;
-} 
+/* smaller hero on sub-pages than the homepage */
+.content-page .hero-image{ padding: 2.4rem 2rem 0.4rem; }
+.content-page .hero-image img{ max-height: 16vh; }
+.content-page .hero-title-h1{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.content-page .hero-action{ padding: 0 2rem 2.2rem; }
 
-.hero-title{
-    align-items: flex-start;
-    justify-content: flex-end;
-    margin: unset;
-} 
- 
-.hero-image img{
-    max-height: 18rem;
-}
-
-.hero-action{
-    justify-content: flex-start;
-} 
-
-.hr{
-    grid-area: hr;
-    width: 100%;
-    height: 1rem;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(161 39 42) 0%, rgb(255 108 38 / 63%) 70%, rgb(253 181 65 / 0%) 100%);
-    margin-bottom: -1rem;
-    display: flex;
-    justify-content: flex-end;
-}
- 
-.hr-art{
-    width: 6rem;
-    margin-left: 1.5rem;
-    height: 100%;
-    background-color: #000000;
-    transform: skewX(45deg);
-    /* mix-blend-mode: color; */
-    margin-right: -0.5rem;
-    display: none;
-}
-
-
-
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.card {
-    /* width: 300px; */
-    /* background-color: #fff; */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card-content {
-    /* padding: 20px; */
-}
-
-.card-content h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    /* color: #333; */
-}
-
-.card-content p {
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: #666;
-}
-
-.card-content ul {
-    padding-left: 20px;
-}
-
-.card-content li {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* @media screen and (max-width: 768px) {
-    .card-container {
-        padding: 10px;
-    }
-
-    .card {
-        width: calc(50% - 40px);
-    }
-} */
-
-@media screen and (max-width: 768px) {
-    .card {
-        width: calc(100% - 40px);
-    }
-    .card-container {
-        padding: 10px;
-    }
-
-}
- 
-
+/* ---------- roster / member cards (members.html) ---------- */
 .card-container{
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.4rem;
+  padding: 0;
 }
-
-.card-fs-container{flex-direction: column;}
-
+.card-fs-container{ display: grid; }
 
 .card{
-
+  background: var(--ink-2);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin: 0;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease;
 }
+.card:hover{ transform: translateY(-4px); border-color: var(--gold); }
+.card img{ width: 100%; height: auto; display: block; }
+
+.card-content{ padding: 1.1rem 1.2rem; }
+.card-content h2{ font-size: 1.05rem; color: var(--gold-bright); margin-bottom: 0.4rem; }
+.card-content p{ font-size: 0.88rem; color: var(--slate); margin-bottom: 0.3rem; }
+.card-content ul{ padding-left: 1.1rem; }
+.card-content li{ font-size: 0.84rem; color: var(--slate); margin-bottom: 0.3rem; }
 
 .card-fs{
-    display: grid;
-    grid-template-areas:
-        "top top top"
-        "img details1 details2"
-        "img details1 card-action"
-        "bottom bottom bottom";
-    grid-template-columns: 1fr 1fr 1fr; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: var(--ink-2);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-sm);
 }
-  
 .card-fs img{
-    grid-area: img;
-    width: 20vw;
-    height: 12vw;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 0.5rem;
-    object-fit: cover;
-    object-position: top;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: top;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
-
-.card-fs .hr{
-    grid-area: top;
-    margin-bottom: 0;
-    height: 2px;
-    background: linear-gradient(90deg, rgb(255 255 255) 0%, rgb(255 108 38 / 33%) 70%, rgb(253 181 65 / 0%) 100%);
-}
-.card-fs .hr-bottom{
-    grid-area: bottom;
-    margin-bottom: 0;
-}
-
-.card-fs .details1{
-    grid-area: details1;
-    padding: 20px;
-}
-
-.card-fs h4{}
-
-.card-fs .details2{
-    grid-area: details2;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-}
-
-.card-fs ul{
-    color: gray;
-    list-style: inside;
-    margin-top: 1rem;
-    line-height: 1.5rem;
-} 
+.card-fs .hr, .card-fs .hr-bottom{ display: none; }
+.card-fs .details1{ padding: 1.2rem; grid-column: 2; }
+.card-fs .details2{ padding: 1.2rem; grid-column: 3; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
+.card-fs ul{ list-style: disc inside; color: var(--slate); line-height: 1.6rem; }
 .card-fs button{
-    font-family: 'Montserrat';
-    background: linear-gradient(142deg, #3f1f09, transparent);
-    color: white;
-    border: 0px;
-    border-radius: unset;
-    font-weight: 100;
-    weight: 100;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  font-family: var(--sans);
+  background: var(--crimson);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  transition: all .2s ease;
 }
+.card-fs button:hover{ background: var(--crimson-bright); }
 
-.card-fs button:hover{
-    /* background: linear-gradient(42deg, #995322, transparent); */
-    background: white;
-    color: black;
-}
-
-.card-fs .card-action{
-    grid-area: card-action;
-}
-
-.card-fs .card-content h2{
-
-}
-.card-fs .card-content p{line-height: unset;}
-.card-fs .card-content ul{
-
-}
- 
- 
-
-.section-list{list-style-type: none;display: grid;}
-
-
-.section-list .card{display: flex;align-items: center;justify-content: center;background: linear-gradient(152deg, #193c499c, black);/* width: 100%; */min-height: 4rem;padding: 2rem;border: 1px solid #5374747a;box-shadow: 1px 2px 14px 0px #3c1d1d00;font-weight: bold;text-align: center;line-height: 1.5rem;/* font-family: monospace; *//* font-size: 1.2rem; */flex-direction: column;margin: unset;}
-
- 
-@media screen and (max-width: 768px)
-{ 
-    .hr{
-        height: 0.2rem;
-        background: linear-gradient(90deg, rgb(161 39 42 / 3%) 0%, rgb(255 108 38 / 63%) 70%, rgb(253 181 65 / 0%) 100%);
-    }
-    .main-container {
-        grid-template-areas:
-            "top-bar"
-            "hero-image"
-            "hero-action"
-            "hr"
-            "about"
-            "news-and-events"
-            "footer";
-        grid-gap: 0.5rem;
-        max-width: 100vw;
-        /* overflow-x: hidden; */
-        grid-template-columns: 1fr;
-    }
-    .card-fs{
-        grid-template-areas:
-            "top"
-            "img"
-            "details1"
-            "details2"
-            "card-action"
-            "bottom";
-        grid-template-columns: 1fr;
-        background: linear-gradient(45deg, #002939c4, transparent);
-        border-radius: 0;
-        grid-template-rows: auto 1fr auto;
-        padding: unset;
-    }  
-    .card-fs img {
-        width: 100%;
-        height: 20vh;
-        margin: 0;
-        margin-top: 0.5rem;
-        border-radius: 0;
-    }
-    .hero-action {
-        justify-content:center;
-    }
-    .card-fs .hr{
-        display:none;
-    }
-    .card-fs button{
-        background: linear-gradient(142deg, #000000, transparent);
-        width: 100%;
-        margin: 0;
-    }
-    .card-fs .details1{
-        
-    }
-    .card-fs .details2{
-        
-    }
-    .section-list{
-        grid-template-columns: 1fr !important;
-    }
-    .section-list .img-card{
-        grid-column: unset !important;
-    }
+@media (max-width: 768px){
+  .card-fs{ grid-template-columns: 1fr; }
+  .card-fs img{ grid-column: 1; grid-row: 1; height: 180px; }
+  .card-fs .details1, .card-fs .details2{ grid-column: 1; }
 }

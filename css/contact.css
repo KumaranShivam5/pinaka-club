@@ -1,143 +1,116 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+/* =========================================================
+   PINAKA — contact form
+   ========================================================= */
+
+.contact-section .heading-placeholder{ text-align: center; }
+.contact-section > .eyebrow{ display: flex; justify-content: center; }
+
+.contact-container{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.6rem;
+  max-width: 920px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #e09, #d0e);
-} */ 
-  
-.contact-container {
-    width: 100%;
-    max-width: 500px;
-    /* background: #fff; */
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+.contact-form{
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius);
+  padding: 2.2rem;
 }
 
-.contact-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+.input-field{
+  position: relative;
+  margin-bottom: 1.8rem;
 }
-
-.input-field {
-    position: relative;
-    margin-bottom: 2rem;
-    /* height: unset; */
-    /* padding: 0rem; */
-} 
 
 .input-field input,
-.input-field textarea {
-    width: 100%;
-    padding: 10px 10px 10px 0;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    font-size: 16px;
-    background: transparent;
-    color: white;
+.input-field textarea{
+  width: 100%;
+  padding: 0.6rem 0 0.6rem 0;
+  border: none;
+  border-bottom: 2px solid var(--line-light);
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--sans);
+  background: transparent;
+  color: var(--ink-text);
 }
+.input-field textarea{ resize: none; height: 90px; }
 
-.input-field textarea {
-    resize: none;
-    height: 100px;
-    color: wheat;
+.input-field label{
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  color: #9098A8;
 }
-
-.input-field label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.3s;
-    color: #aaa;
-}
-
 .input-field input:focus ~ label,
 .input-field input:valid ~ label,
 .input-field textarea:focus ~ label,
-.input-field textarea:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #ff9d9d;
-    font-size: 14px;
+.input-field textarea:valid ~ label{
+  top: -1.1rem;
+  font-size: 0.78rem;
+  color: var(--crimson);
 }
 
-.focus-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #a1272a;
-    transition: 0.4s;
+.focus-border{
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--crimson);
+  transition: 0.3s;
 }
-
 .input-field input:focus ~ .focus-border,
-.input-field textarea:focus ~ .focus-border {
-    width: 100%;
-    transition: 0.4s;
-} 
+.input-field textarea:focus ~ .focus-border{ width: 100%; }
 
-.btn {
-    width: 100%;
-    padding: 10px;
-    background: #ad4000;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s;
+.contact-container .btn{ width: 100%; }
+
+.contact-aside{
+  background: var(--ink-2);
+  border-radius: var(--radius);
+  padding: 2rem;
+  color: #EFEFE8;
+}
+.contact-aside p{ color: var(--slate); margin-bottom: 1.4rem; }
+.contact-aside a{ font-weight: 600; }
+.contact-aside .ig-whatsapp{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  color: #5FD08A;
 }
 
-.btn:hover {
-    background: #d08;
-} 
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0 0 0 / 79%);
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(16,20,28,0.78);
+}
+.modal-content{
+  background: #fff;
+  margin: 14% auto;
+  padding: 1.8rem;
+  width: 86%;
+  max-width: 440px;
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--ink-text);
+}
+.modal-content #modal-title{ font-family: var(--serif); margin-bottom: 0.6rem; }
+.modal-footer{
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-    text-align: center;
-    color: black;
-}
-
-.modal-footer {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-@media (max-width: 600px) {
-    .contact-container {
-        padding: 20px;
-    }
+@media (max-width: 768px){
+  .contact-container{ grid-template-columns: 1fr; }
+  .contact-form{ padding: 1.6rem; }
 }

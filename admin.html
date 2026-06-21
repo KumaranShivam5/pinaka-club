@@ -14,7 +14,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
     <script src="js/firebase-init.js"></script>
 </head>
 
@@ -110,8 +109,8 @@
                             <input type="text" id="athlete-achievement" placeholder="e.g. State Level Bronze Medalist, 2024">
                         </div>
                         <div class="admin-form-row">
-                            <label for="athlete-photo">Photo</label>
-                            <input type="file" id="athlete-photo" accept="image/*">
+                            <label for="athlete-photo">Photo URL</label>
+                            <input type="url" id="athlete-photo" placeholder="https://... (upload a photo to Drive/Imgur/Photos and paste the public link here, or reuse an existing image path like images/gallery/g1.webp)">
                         </div>
                         <button type="submit" class="admin-btn gold">Add shooter</button>
                         <button type="button" id="btn-seed" class="admin-btn ghost">Load sample shooters</button>

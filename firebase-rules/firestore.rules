@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null &&
+             exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Public can read news; only admins can add/edit/delete it.
+    match /news/{newsId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Public can read the athlete roster; only admins can manage it.
+    match /athletes/{athleteId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Anyone can submit the contact form (create only).
+    // Only admins can read/update(mark read)/delete messages.
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Admin allowlist — managed by hand in the console, never via the app.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+  }
+}

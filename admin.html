@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin | PINAKA Rifle Shooting Club</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="js/firebase-init.js"></script>
+</head>
+
+<body>
+    <div class="main-container content-page">
+        <div class="top-bar">
+            <div class="top-logo">
+                <img src="images/logo/rect-logo-dark.svg" alt="PINAKA Rifle Shooting Club">
+            </div>
+            <div class="breadcrumb-menu">
+                <a class="breadcrumb-item" href="index.html">← Back to site</a>
+            </div>
+        </div>
+
+        <!-- Shown while signed out -->
+        <div id="gate-signed-out" class="admin-gate">
+            <h3 style="color:#F2EEE2; font-family:var(--serif); margin-bottom:0.6rem;">Admin Sign In</h3>
+            <p>Sign in with the Google account registered as a PINAKA admin.</p>
+            <button id="btn-sign-in" class="admin-btn gold">Sign in with Google</button>
+        </div>
+
+        <!-- Shown when signed in but not on the admins allowlist -->
+        <div id="gate-not-authorized" class="admin-gate" style="display:none;">
+            <h3 style="color:#F2EEE2; font-family:var(--serif); margin-bottom:0.6rem;">Not authorized</h3>
+            <p>This Google account isn't on the PINAKA admin list yet. Ask whoever manages the Firebase project to add
+                your UID under the <code>admins</code> collection.</p>
+            <button id="btn-sign-out-1" class="admin-btn ghost">Sign out</button>
+        </div>
+
+        <!-- The actual dashboard -->
+        <div id="dashboard" class="admin-shell" style="display:none;">
+            <div class="admin-header">
+                <span class="who">Signed in as <strong id="who-email"></strong></span>
+                <button id="btn-sign-out-2" class="admin-btn ghost">Sign out</button>
+            </div>
+
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="news">News &amp; Events</button>
+                <button class="admin-tab" data-tab="athletes">Shooters</button>
+                <button class="admin-tab" data-tab="messages">Messages</button>
+            </div>
+
+            <!-- ============ NEWS TAB ============ -->
+            <div class="admin-panel active" id="panel-news">
+                <div class="admin-card">
+                    <h3>Add a news / event item</h3>
+                    <form id="form-news">
+                        <div class="admin-form-row">
+                            <label for="news-title">Title</label>
+                            <input type="text" id="news-title" required>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="news-details">Details</label>
+                            <textarea id="news-details" required></textarea>
+                        </div>
+                        <button type="submit" class="admin-btn gold">Publish</button>
+                        <div class="admin-status" id="news-status"></div>
+                    </form>
+                </div>
+                <div class="admin-list" id="news-list"></div>
+            </div>
+
+            <!-- ============ ATHLETES TAB ============ -->
+            <div class="admin-panel" id="panel-athletes">
+                <div class="admin-card">
+                    <h3>Add a shooter</h3>
+                    <form id="form-athlete">
+                        <div class="admin-form-grid">
+                            <div class="admin-form-row">
+                                <label for="athlete-first">First name</label>
+                                <input type="text" id="athlete-first" required>
+                            </div>
+                            <div class="admin-form-row">
+                                <label for="athlete-last">Last name</label>
+                                <input type="text" id="athlete-last">
+                            </div>
+                        </div>
+                        <div class="admin-form-grid">
+                            <div class="admin-form-row">
+                                <label for="athlete-age">Age</label>
+                                <input type="number" id="athlete-age" min="5" max="80" required>
+                            </div>
+                            <div class="admin-form-row">
+                                <label for="athlete-category">Category</label>
+                                <select id="athlete-category">
+                                    <option>Air Rifle</option>
+                                    <option>Air Pistol</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="athlete-achievement">Achievement</label>
+                            <input type="text" id="athlete-achievement" placeholder="e.g. State Level Bronze Medalist, 2024">
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="athlete-photo">Photo</label>
+                            <input type="file" id="athlete-photo" accept="image/*">
+                        </div>
+                        <button type="submit" class="admin-btn gold">Add shooter</button>
+                        <button type="button" id="btn-seed" class="admin-btn ghost">Load sample shooters</button>
+                        <div class="admin-status" id="athlete-status"></div>
+                    </form>
+                </div>
+                <div class="admin-list" id="athlete-list"></div>
+            </div>
+
+            <!-- ============ MESSAGES TAB ============ -->
+            <div class="admin-panel" id="panel-messages">
+                <div class="admin-list" id="message-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

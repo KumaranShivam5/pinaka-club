@@ -24,6 +24,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="js/firebase-init.js"></script>
 
 </head>
 
@@ -123,25 +126,7 @@
                     News and Events
                 </div>
                 <div class="cards-wrapper news-cards-wrapper">
-                    <div class="cards news-card">
-                        <h3 class="card-title">
-                            Inaugration
-                        </h3>
-                        <p class="card-text">
-                            With immense pride, we inaugurate the Pinaka Rifle Shooting Club. Thank you for joining us
-                            on this exciting journey. Together, let's aim high and shoot for excellence.
-                        </p>
-                    </div>
-                    <div class="cards news-card">
-                        <h3 class="card-title">
-                            Championship
-                        </h3>
-                        <p class="card-text">
-                            Join us for the ultimate showdown at the Pinaka Rifle Shooting Club Championship! Prepare
-                            to witness precision, determination, and the thrill of competition. Let's aim for victory
-                            together!
-                        </p>
-                    </div>
+                    <newsrow v-for="el in news_list" :key="el.id" :nrow="el"></newsrow>
                 </div>
             </div>
         </div>
@@ -180,6 +165,7 @@
 
     </div>
     <script src="js/contact.js"></script>
+    <script src="js/news-feed.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const breadcrumbToggle = document.querySelector('.breadcrumb-toggle');

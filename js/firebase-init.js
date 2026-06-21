@@ -1,5 +1,9 @@
-// Shared Firebase initialization for pages that read/write Firestore or Storage
+// Shared Firebase initialization for pages that read/write Firestore
 // (news, athletes/Shooters, contact messages, admin dashboard).
+//
+// Deliberately Firestore-only — Cloud Storage for Firebase now requires
+// the paid Blaze plan to even enable, so athlete/news photos are plain
+// URLs (pasted by the admin) instead of uploaded files.
 //
 // The phone/Google registration flow (OTP.html / firebase-auth.js) keeps its
 // own separate init call — this file is intentionally independent of it so

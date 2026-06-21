@@ -150,39 +150,26 @@ function bindAthleteForm() {
         const age = Number(document.getElementById('athlete-age').value);
         const category = document.getElementById('athlete-category').value;
         const achievement = document.getElementById('athlete-achievement').value.trim();
-        const file = document.getElementById('athlete-photo').files[0];
+        const photoUrl = document.getElementById('athlete-photo').value.trim();
 
         if (!firstName || !age) return;
 
         setStatus('athlete-status', 'Saving…', false);
 
-        const saveAthlete = (photoUrl) => {
-            db.collection('athletes').add({
-                firstName,
-                lastName,
-                age,
-                category,
-                achievement,
-                photoUrl: photoUrl || '',
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            }).then(() => {
-                setStatus('athlete-status', 'Shooter added.', false);
-                document.getElementById('form-athlete').reset();
-            }).catch((err) => {
-                setStatus('athlete-status', 'Failed: ' + err.message, true);
-            });
-        };
-
-        if (file) {
-            const path = 'athletes/' + Date.now() + '-' + file.name;
-            const ref = firebase.storage().ref().child(path);
-            ref.put(file)
-                .then((snap) => snap.ref.getDownloadURL())
-                .then((url) => saveAthlete(url))
-                .catch((err) => setStatus('athlete-status', 'Photo upload failed: ' + err.message, true));
-        } else {
-            saveAthlete('');
-        }
+        db.collection('athletes').add({
+            firstName,
+            lastName,
+            age,
+            category,
+            achievement,
+            photoUrl,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        }).then(() => {
+            setStatus('athlete-status', 'Shooter added.', false);
+            document.getElementById('form-athlete').reset();
+        }).catch((err) => {
+            setStatus('athlete-status', 'Failed: ' + err.message, true);
+        });
     });
 }
 
@@ -207,9 +194,6 @@ function watchAthletes() {
             row.querySelector('.danger').addEventListener('click', () => {
                 if (confirm('Remove this shooter from the roster?')) {
                     db.collection('athletes').doc(doc.id).delete();
-                    if (a.photoUrl) {
-                        firebase.storage().refFromURL(a.photoUrl).delete().catch(() => { });
-                    }
                 }
             });
             list.appendChild(row);

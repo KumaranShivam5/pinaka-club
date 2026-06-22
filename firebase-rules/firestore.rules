@@ -20,6 +20,12 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Public can read blog posts; only admins can write/edit/delete them.
+    match /blogs/{blogId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     // Anyone can submit the contact form (create only).
     // Only admins can read/update(mark read)/delete messages.
     match /messages/{messageId} {

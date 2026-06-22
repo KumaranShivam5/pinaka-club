@@ -70,9 +70,11 @@ function initDashboard() {
     watchNews();
     watchAthletes();
     watchMessages();
+    watchBlogs();
     bindNewsForm();
     bindAthleteForm();
     bindSeedButton();
+    bindBlogForm();
 }
 
 function setStatus(elId, message, isError) {
@@ -86,6 +88,19 @@ function fmtDate(ts) {
     return ts.toDate().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
+function formatNewsDate(dateStr) {
+    // Mirrors js/news-components.js — kept separate since admin.html
+    // doesn't load Vue and this file is otherwise plain JS.
+    if (!dateStr) return '';
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return dateStr;
+    const [y, m, d] = parts;
+    const mi = parseInt(m, 10) - 1;
+    if (mi < 0 || mi > 11) return dateStr;
+    return `${parseInt(d, 10)} ${months[mi]} ${y}`;
+}
+
 // ---------------------------------------------------------------------------
 // News
 // ---------------------------------------------------------------------------
@@ -95,11 +110,15 @@ function bindNewsForm() {
         e.preventDefault();
         const title = document.getElementById('news-title').value.trim();
         const details = document.getElementById('news-details').value.trim();
+        const eventDate = document.getElementById('news-date').value || '';
+        const imageUrl = document.getElementById('news-image').value.trim();
         if (!title || !details) return;
 
         db.collection('news').add({
             title,
             details,
+            eventDate,
+            imageUrl,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         }).then(() => {
             setStatus('news-status', 'Published.', false);
@@ -119,8 +138,9 @@ function watchNews() {
             const row = document.createElement('div');
             row.className = 'admin-row';
             row.innerHTML = `
+                ${n.imageUrl ? `<img src="${n.imageUrl}" alt="">` : ''}
                 <div class="meta">
-                    <h4>${escapeHtml(n.title || '')}</h4>
+                    <h4>${escapeHtml(n.title || '')}${n.eventDate ? ' · ' + escapeHtml(formatNewsDate(n.eventDate)) : ''}</h4>
                     <p>${escapeHtml(n.details || '')}</p>
                 </div>
                 <div class="actions">
@@ -262,8 +282,106 @@ function watchMessages() {
 }
 
 // ---------------------------------------------------------------------------
-// Utility
+// Blog
 // ---------------------------------------------------------------------------
+
+function bindBlogForm() {
+    const markdownEl = document.getElementById('blog-markdown');
+    const previewEl = document.getElementById('blog-preview');
+
+    markdownEl.addEventListener('input', () => {
+        previewEl.innerHTML = marked.parse(markdownEl.value || '');
+    });
+
+    document.getElementById('btn-blog-cancel-edit').addEventListener('click', () => {
+        resetBlogForm();
+    });
+
+    document.getElementById('form-blog').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const editId = document.getElementById('blog-edit-id').value;
+        const title = document.getElementById('blog-title').value.trim();
+        const coverImageUrl = document.getElementById('blog-cover').value.trim();
+        const excerpt = document.getElementById('blog-excerpt').value.trim();
+        const markdown = markdownEl.value;
+
+        if (!title || !markdown) return;
+
+        const payload = { title, coverImageUrl, excerpt, markdown };
+
+        if (editId) {
+            payload.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
+            db.collection('blogs').doc(editId).update(payload)
+                .then(() => {
+                    setStatus('blog-status', 'Post updated.', false);
+                    resetBlogForm();
+                })
+                .catch((err) => setStatus('blog-status', 'Failed: ' + err.message, true));
+        } else {
+            payload.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+            db.collection('blogs').add(payload)
+                .then(() => {
+                    setStatus('blog-status', 'Published.', false);
+                    resetBlogForm();
+                })
+                .catch((err) => setStatus('blog-status', 'Failed: ' + err.message, true));
+        }
+    });
+}
+
+function resetBlogForm() {
+    document.getElementById('form-blog').reset();
+    document.getElementById('blog-edit-id').value = '';
+    document.getElementById('blog-preview').innerHTML = '';
+    document.getElementById('blog-form-heading').innerText = 'Write a post';
+    document.getElementById('blog-submit-btn').innerText = 'Publish';
+    document.getElementById('btn-blog-cancel-edit').style.display = 'none';
+}
+
+function watchBlogs() {
+    db.collection('blogs').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+        const list = document.getElementById('blog-list');
+        list.innerHTML = '';
+        snapshot.forEach((doc) => {
+            const b = doc.data();
+            const row = document.createElement('div');
+            row.className = 'admin-row';
+            row.innerHTML = `
+                ${b.coverImageUrl ? `<img src="${b.coverImageUrl}" alt="">` : ''}
+                <div class="meta">
+                    <h4>${escapeHtml(b.title || 'Untitled')}</h4>
+                    <p>${escapeHtml(b.excerpt || stripMarkdownExcerpt(b.markdown, 100))}</p>
+                </div>
+                <div class="actions">
+                    <button class="admin-btn ghost edit-btn">Edit</button>
+                    <button class="admin-btn danger">Delete</button>
+                </div>
+            `;
+            row.querySelector('.edit-btn').addEventListener('click', () => {
+                document.getElementById('blog-edit-id').value = doc.id;
+                document.getElementById('blog-title').value = b.title || '';
+                document.getElementById('blog-cover').value = b.coverImageUrl || '';
+                document.getElementById('blog-excerpt').value = b.excerpt || '';
+                document.getElementById('blog-markdown').value = b.markdown || '';
+                document.getElementById('blog-preview').innerHTML = marked.parse(b.markdown || '');
+                document.getElementById('blog-form-heading').innerText = 'Editing: ' + (b.title || 'Untitled');
+                document.getElementById('blog-submit-btn').innerText = 'Save changes';
+                document.getElementById('btn-blog-cancel-edit').style.display = 'inline-block';
+                document.querySelector('.admin-tab[data-tab="blog"]').click();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            row.querySelector('.danger').addEventListener('click', () => {
+                if (confirm('Delete this post?')) {
+                    db.collection('blogs').doc(doc.id).delete();
+                }
+            });
+            list.appendChild(row);
+        });
+    });
+}
+
+
 
 function escapeHtml(str) {
     return String(str)

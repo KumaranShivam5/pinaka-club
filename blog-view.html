@@ -4,34 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="googlebot" content="notranslate">
-    <meta name="creator" content="kumaran">
-    <meta name="author" content="saurabh kumar">
-    <meta name="location" content="chatra jharkhand">
-    <meta name="keywords"
-        content="rifle club, shooting academy for kids, shooting, sports academy, rifle club in chatra, national championship, shooting training, pinaka, chatra, jharkhand">
-    <meta name="description"
-        content="Facilities at PINAKA Rifle Shooting Club, Chatra: an ISSF-compliant 10m range with automated scoring, 10m air rifle and pistol, full equipment support, and full-time dedicated coaching.">
-    <title>Facilities | PINAKA Rifle Shooting Club, Chatra</title>
+    <meta name="robots" content="index, follow">
+    <title id="page-title">Blog | PINAKA Rifle Shooting Club, Chatra</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/content-template.css">
-    <link rel="stylesheet" href="css/facilities.css">
+    <link rel="stylesheet" href="css/blog.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="js/firebase-init.js"></script>
-    <script src="js/news-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 </head>
 
 <body>
-    <div class="main-container content-page" id="index-js-area">
+    <div class="main-container content-page">
         <div class="top-bar">
             <div class="top-logo">
                 <img src="images/logo/rect-logo-dark.svg" alt="PINAKA Rifle Shooting Club">
@@ -52,62 +42,14 @@
             </div>
         </div>
 
-        <div class="hero-image">
-            <img src="images/logo/large-logo-dark.svg" alt="">
-        </div>
-        <div class="hero-title">
-            <span class="eyebrow"><span class="ring"></span>Facilities</span>
-            <div class="hero-title-h1">
-                Built for serious training, run safely
+        <section class="section section-paper">
+            <div class="section-inner">
+                <a href="blog.html" class="blog-back-link">← All posts</a>
+                <article class="blog-article" id="blog-article">
+                    <p>Loading…</p>
+                </article>
             </div>
-            <span class="hero-title-h2">
-                A proper indoor range, full equipment support, and coaching that's hands-on from day one.
-            </span>
-        </div>
-        <div class="hero-action">
-            <button class="primary-action skewed-button non-skew" onclick='window.location.href="login.html"'>Join
-                PINAKA</button>
-        </div>
-
-        <section class="about facilities-section">
-            <span class="eyebrow"><span class="ring"></span>Facilities @ PINAKA</span>
-            <h1 class="heading-placeholder">Facilities @ PINAKA</h1>
-            <ul class="section-list facility-list">
-                <li class="img-card large-img-card card">
-                    <p>
-                        10m shooting range complying to ISSF
-                        Norms, with automated card machine
-                    </p>
-                </li>
-                <li class="img-card mid-img-card card rifle-card">
-                    <p>
-                        10 m Air Rifle
-                    </p>
-                </li>
-                <li class="pistol-card img-card mid-img-card card">
-                    <p>
-                        Air Pistol
-                    </p>
-                </li>
-                <li class="card">Designed courses for shooters at all levels
-                    <a href="course.html">See all courses →</a>
-                </li>
-                <li class="card">All Consumables provided</li>
-                <li class="card">Full-time dedicated coaching and training</li>
-                <li class="card">Training in collaboration with schools</li>
-            </ul>
         </section>
-
-        <div class="news-and-events" id="news-widget">
-            <div class="cards-section-wrapper">
-                <div class="cards-section-header">
-                    News and Events
-                </div>
-                <div class="cards-wrapper news-cards-wrapper">
-                    <newsrow v-for="el in news_list" :key="el.id" :nrow="el"></newsrow>
-                </div>
-            </div>
-        </div>
 
         <div class="footer">
             <div class="contact">
@@ -142,7 +84,8 @@
         </div>
 
     </div>
-    <script src="js/news-feed.js"></script>
+    <script src="js/blog-shared.js"></script>
+    <script src="js/blog-view.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const breadcrumbToggle = document.querySelector('.breadcrumb-toggle');
@@ -150,7 +93,6 @@
 
             breadcrumbToggle.addEventListener('click', function () {
                 breadcrumbMenu.classList.toggle('active');
-                breadcrumbToggle.classList.toggle('toggle-btn-active');
             });
         });
     </script>

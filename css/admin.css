@@ -126,6 +126,15 @@
   margin-right: 0.5rem;
 }
 
+/* the .blog-content styles (css/blog.css) assume a light/paper background;
+   override for the dark preview pane inside the admin dashboard */
+#blog-preview{ color: #D9D4C6; }
+#blog-preview h1, #blog-preview h2, #blog-preview h3{ color: #F2EEE2; }
+#blog-preview p, #blog-preview ul, #blog-preview ol{ color: #D9D4C6; }
+#blog-preview a{ color: var(--gold-bright); }
+#blog-preview code{ background: var(--ink-3); color: #F2EEE2; }
+#blog-preview:empty::before{ content: 'Nothing to preview yet.'; color: var(--slate); font-size: 0.88rem; }
+
 @media (max-width: 600px){
   .admin-form-grid{ grid-template-columns: 1fr; }
   .admin-row{ flex-wrap: wrap; }

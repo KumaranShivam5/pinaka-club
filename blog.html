@@ -9,17 +9,16 @@
     <meta name="author" content="saurabh kumar">
     <meta name="location" content="chatra jharkhand">
     <meta name="keywords"
-        content="rifle club, shooting academy for kids, shooting, sports academy, rifle club in chatra, national championship, shooting training, pinaka, chatra, jharkhand">
+        content="rifle club, shooting academy for kids, shooting, sports academy, rifle club in chatra, national championship, shooting training, pinaka, chatra, jharkhand, blog">
     <meta name="description"
-        content="Contact PINAKA Rifle Shooting Club in Chatra, Jharkhand — call, WhatsApp, or send a message to ask about courses for school students and beginners.">
-    <title>Contact Us | PINAKA Rifle Shooting Club, Chatra</title>
+        content="Stories, updates and tips from PINAKA Rifle Shooting Club, Chatra — for shooters, students and parents.">
+    <title>Blog | PINAKA Rifle Shooting Club, Chatra</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/content-template.css">
-    <link rel="stylesheet" href="css/contact.css">
-
+    <link rel="stylesheet" href="css/blog.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
@@ -57,67 +56,19 @@
             <img src="images/logo/large-logo-dark.svg" alt="">
         </div>
         <div class="hero-title">
-            <span class="eyebrow"><span class="ring"></span>Get in touch</span>
+            <span class="eyebrow"><span class="ring"></span>Blog</span>
             <div class="hero-title-h1">
-                Questions? We're happy to help.
+                Stories from the range
             </div>
             <span class="hero-title-h2">
-                Ask about courses, timings, or anything else — call, WhatsApp, or send a message below.
+                Updates, tips and behind-the-scenes from PINAKA — for shooters, students and parents.
             </span>
         </div>
-        <div class="hero-action">
-            <button class="primary-action skewed-button non-skew" onclick='window.location.href="login.html"'>Join
-                PINAKA</button>
-        </div>
 
-        <section class="section section-paper contact-section">
+        <section class="section section-paper">
             <div class="section-inner">
-                <span class="eyebrow"><span class="ring"></span>Contact Us</span>
-                <h1 class="heading-placeholder">Contact Us</h1>
-                <div class="contact-container">
-                    <div class="contact-form">
-                        <form id="contactForm" onsubmit="return false;">
-                            <div class="input-field">
-                                <input type="text" id="name" name="name" required>
-                                <label for="name">Name</label>
-                                <span class="focus-border"></span>
-                            </div>
-                            <div class="input-field">
-                                <input type="email" id="email" name="email" required>
-                                <label for="email">Email</label>
-                                <span class="focus-border"></span>
-                            </div>
-                            <div class="input-field">
-                                <input type="tel" id="phone" name="phone" required>
-                                <label for="phone">Phone</label>
-                                <span class="focus-border"></span>
-                            </div>
-                            <div class="input-field">
-                                <textarea id="message" name="message" required></textarea>
-                                <label for="message">Message</label>
-                                <span class="focus-border"></span>
-                            </div>
-                            <button class="btn" type="submit">Send Message</button>
-                        </form>
-                    </div>
-                    <div class="contact-aside">
-                        <h4 style="font-family:var(--serif); margin-bottom:0.6rem;">Prefer to talk directly?</h4>
-                        <p>Feel free to call us, or send a message on WhatsApp — we usually reply the same day.</p>
-                        <p style="margin-bottom:0;"><a href="tel:+917909092464">7909092464</a></p>
-                        <a class="ig-whatsapp" href="https://wa.me/917909092464">
-                            <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Message on WhatsApp
-                        </a>
-                    </div>
-                </div>
-                <div id="modal" class="modal">
-                    <div class="modal-content">
-                        <h4 id="modal-title"></h4>
-                        <p id="modal-message"></p>
-                        <div class="modal-footer">
-                            <button id="modal-retry" class="btn" style="display: none;">Retry</button>
-                            <button id="modal-home" class="btn" style="display: none;">Home</button>
-                        </div>
-                    </div>
+                <div class="blog-grid" id="blog-grid">
+                    <p class="blog-empty">Loading posts…</p>
                 </div>
             </div>
         </section>
@@ -166,7 +117,8 @@
         </div>
 
     </div>
-    <script src="js/contact.js"></script>
+    <script src="js/blog-shared.js"></script>
+    <script src="js/blog-list.js"></script>
     <script src="js/news-feed.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -175,10 +127,10 @@
 
             breadcrumbToggle.addEventListener('click', function () {
                 breadcrumbMenu.classList.toggle('active');
-                breadcrumbToggle.classList.toggle('toggle-btn-active');
             });
         });
     </script>
+
 </body>
 
 </html>

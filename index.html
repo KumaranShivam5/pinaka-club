@@ -17,6 +17,7 @@
     <title>PINAKA Rifle Shooting Club | Shooting Academy for Students in Chatra, Jharkhand</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/blog.css">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mobile.css">
 
@@ -26,6 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="js/firebase-init.js"></script>
+    <script src="js/news-components.js"></script>
 </head>
 
 <body>
@@ -44,6 +46,7 @@
                 <a class="breadcrumb-item" href="facilities.html">Facilities</a>
                 <a class="breadcrumb-item" href="course.html">Courses</a>
                 <a class="breadcrumb-item" href="members.html">Shooters</a>
+                <a class="breadcrumb-item" href="blog.html">Blog</a>
                 <a class="breadcrumb-item" href="login.html">Register</a>
                 <a class="breadcrumb-item" href="contact.html">Contact Us</a>
             </div>
@@ -285,6 +288,21 @@
             </div>
         </section>
 
+        <!-- ===================== BLOG TEASER ===================== -->
+        <section class="section section-dark" v-if="blog_list.length">
+            <div class="section-inner">
+                <span class="eyebrow"><span class="ring"></span>From the blog</span>
+                <h2 class="heading-placeholder" style="font-size:2.1rem; margin-bottom:1.8rem;">Stories from the range</h2>
+                <div class="blog-teaser-grid">
+                    <blogteaser v-for="el in blog_list" :key="el.id" :post="el"></blogteaser>
+                </div>
+                <div style="text-align:center;">
+                    <button class="sc-action skewed-button" onclick='window.location.href="blog.html"'>Read more on the
+                        blog</button>
+                </div>
+            </div>
+        </section>
+
         <div class="news-and-events">
             <div class="cards-section-wrapper">
                 <div class="cards-section-header">
@@ -329,6 +347,7 @@
         </div>
 
     </div>
+    <script src="js/blog-shared.js"></script>
     <script src="js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {

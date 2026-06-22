@@ -22,20 +22,6 @@ Vue.component('cardrow', {
     props: ["crow"],
 });
 
-Vue.component('newsrow', {
-    template: `
-    <div class="cards news-card">
-        <h3 class="card-title">
-            {{nrow.title}}
-        </h3>
-        <p class="card-text">
-            {{nrow.details}}
-        </p>
-    </div>
-    `,
-    props: ['nrow'],
-});
-
 var index = new Vue({
     el: '#index-js-area',
 

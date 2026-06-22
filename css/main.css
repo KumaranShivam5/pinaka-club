@@ -475,6 +475,23 @@ button, .skewed-button{ transform: none; }
   padding: 1.2rem 1.3rem;
   margin: 0;
 }
+.news-card-image{
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: -1.2rem -1.3rem 0.9rem;
+  width: calc(100% + 2.6rem);
+  max-width: calc(100% + 2.6rem);
+}
+.news-card-date{
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 0.4rem;
+}
 .card-title{
   font-family: var(--serif);
   font-size: 1.05rem;

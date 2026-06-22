@@ -12,21 +12,28 @@ Vue.component(
         },
     );
 
-Vue.component(
-    'newsrow', {
-        template: `
-        <div class="cards news-card">
-                        <h3 class="card-title">
-                            {{nrow.title}}
-                        </h3>
-                        <p class="card-text">
-                            {{nrow.details}}
-                        </p>
-                    </div>
-        `,
-        props: ['nrow']
-    }
-);
+Vue.component('blogteaser', {
+    template: `
+    <a class="blog-card" :href="'blog-view.html?id=' + post.id">
+        <img v-if="post.coverImageUrl" class="blog-card-image" :src="post.coverImageUrl" alt="">
+        <div class="blog-card-body">
+            <span class="blog-card-date">{{ formattedDate }}</span>
+            <h3>{{ post.title || 'Untitled' }}</h3>
+            <p>{{ excerpt }}</p>
+            <span class="read-more">Read more →</span>
+        </div>
+    </a>
+    `,
+    props: ['post'],
+    computed: {
+        excerpt() {
+            return this.post.excerpt || stripMarkdownExcerpt(this.post.markdown, 110);
+        },
+        formattedDate() {
+            return formatBlogDate(this.post.createdAt);
+        },
+    },
+});
 
 
 
@@ -36,6 +43,7 @@ var index = new Vue({
     data: {
         card_list: [],
         news_list: [],
+        blog_list: [],
     },
     methods: {
         go_to_page(id) {
@@ -65,11 +73,24 @@ var index = new Vue({
                     console.error('News failed to load:', err);
                 });
         },
+        load_blogs() {
+            db.collection('blogs')
+                .orderBy('createdAt', 'desc')
+                .limit(3)
+                .get()
+                .then((snapshot) => {
+                    this.blog_list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                })
+                .catch((err) => {
+                    console.error('Blog teasers failed to load:', err);
+                });
+        },
     },
 
     mounted() {
         this.load_gallery();
         this.load_news();
+        this.load_blogs();
     },
 
 

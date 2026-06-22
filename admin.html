@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/admin.css">
 
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="js/firebase-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -53,6 +55,7 @@
             <div class="admin-tabs">
                 <button class="admin-tab active" data-tab="news">News &amp; Events</button>
                 <button class="admin-tab" data-tab="athletes">Shooters</button>
+                <button class="admin-tab" data-tab="blog">Blog</button>
                 <button class="admin-tab" data-tab="messages">Messages</button>
             </div>
 
@@ -68,6 +71,16 @@
                         <div class="admin-form-row">
                             <label for="news-details">Details</label>
                             <textarea id="news-details" required></textarea>
+                        </div>
+                        <div class="admin-form-grid">
+                            <div class="admin-form-row">
+                                <label for="news-date">Event date (optional)</label>
+                                <input type="date" id="news-date">
+                            </div>
+                            <div class="admin-form-row">
+                                <label for="news-image">Image URL (optional)</label>
+                                <input type="url" id="news-image" placeholder="https://...">
+                            </div>
                         </div>
                         <button type="submit" class="admin-btn gold">Publish</button>
                         <div class="admin-status" id="news-status"></div>
@@ -124,9 +137,48 @@
             <div class="admin-panel" id="panel-messages">
                 <div class="admin-list" id="message-list"></div>
             </div>
+
+            <!-- ============ BLOG TAB ============ -->
+            <div class="admin-panel" id="panel-blog">
+                <div class="admin-card">
+                    <h3 id="blog-form-heading">Write a post</h3>
+                    <form id="form-blog">
+                        <input type="hidden" id="blog-edit-id" value="">
+                        <div class="admin-form-row">
+                            <label for="blog-title">Title</label>
+                            <input type="text" id="blog-title" required>
+                        </div>
+                        <div class="admin-form-grid">
+                            <div class="admin-form-row">
+                                <label for="blog-cover">Cover image URL (optional)</label>
+                                <input type="url" id="blog-cover" placeholder="https://...">
+                            </div>
+                            <div class="admin-form-row">
+                                <label for="blog-excerpt">Excerpt (optional — auto-generated if left blank)</label>
+                                <input type="text" id="blog-excerpt">
+                            </div>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="blog-markdown">Content (Markdown)</label>
+                            <textarea id="blog-markdown" style="min-height:220px; font-family:var(--mono); font-size:0.88rem;" required></textarea>
+                        </div>
+                        <div class="admin-form-row">
+                            <label>Preview</label>
+                            <div id="blog-preview" class="blog-content"
+                                style="background:var(--ink); border-radius:8px; padding:1rem 1.2rem; max-height:280px; overflow-y:auto;">
+                            </div>
+                        </div>
+                        <button type="submit" class="admin-btn gold" id="blog-submit-btn">Publish</button>
+                        <button type="button" id="btn-blog-cancel-edit" class="admin-btn ghost" style="display:none;">Cancel edit</button>
+                        <div class="admin-status" id="blog-status"></div>
+                    </form>
+                </div>
+                <div class="admin-list" id="blog-list"></div>
+            </div>
         </div>
     </div>
 
+    <script src="js/blog-shared.js"></script>
     <script src="js/admin.js"></script>
 </body>
 

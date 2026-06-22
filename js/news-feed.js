@@ -1,23 +1,10 @@
 // Lightweight News & Events widget for pages that only need to show news
 // (course.html, facilities.html, contact.html). The homepage has its own
 // Vue instance in index.js that also handles the gallery strip.
-
-Vue.component('newsrow', {
-    template: `
-    <div class="cards news-card">
-        <h3 class="card-title">
-            {{nrow.title}}
-        </h3>
-        <p class="card-text">
-            {{nrow.details}}
-        </p>
-    </div>
-    `,
-    props: ['nrow']
-});
+// (the 'newsrow' component itself lives in js/news-components.js)
 
 new Vue({
-    el: '#index-js-area',
+    el: '#news-widget',
     data: {
         news_list: [],
     },

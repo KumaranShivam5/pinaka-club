@@ -1,0 +1,116 @@
+/* =========================================================
+   PINAKA — blog
+   ========================================================= */
+
+/* ---------- list grid (blog.html) ---------- */
+.blog-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.blog-card{
+  background: #fff;
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.blog-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 30px rgba(16,20,28,0.10); }
+.blog-card .blog-card-image{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: var(--paper-2);
+}
+.blog-card .blog-card-body{ padding: 1.3rem 1.4rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+.blog-card .blog-card-date{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.5rem;
+}
+.blog-card h3{ font-size: 1.18rem; color: var(--ink-text); margin-bottom: 0.5rem; }
+.blog-card p{ font-size: 0.9rem; color: var(--ink-text-soft); flex: 1; margin-bottom: 0.9rem; }
+.blog-card .read-more{ font-weight: 600; font-size: 0.88rem; color: var(--crimson); }
+
+.blog-empty{ text-align: center; color: var(--ink-text-soft); padding: 2rem 0; }
+
+/* ---------- homepage teaser ---------- */
+.blog-teaser-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+.blog-teaser-grid .blog-card{ background: var(--ink-2); border-color: var(--line-dark); }
+.blog-teaser-grid .blog-card h3{ color: #F2EEE2; }
+.blog-teaser-grid .blog-card p{ color: var(--slate); }
+.blog-teaser-grid .blog-card .read-more{ color: var(--gold-bright); }
+
+/* ---------- blog-view.html ---------- */
+.blog-article{
+  max-width: 740px;
+  margin: 0 auto;
+}
+.blog-article .blog-cover{
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1.8rem;
+}
+.blog-article .blog-date{
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.blog-article h1{ font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--ink-text); margin-bottom: 1.6rem; }
+
+.blog-content{ color: var(--ink-text); font-size: 1.04rem; line-height: 1.8; }
+.blog-content h1, .blog-content h2, .blog-content h3{ color: var(--ink-text); margin: 1.8rem 0 0.8rem; }
+.blog-content h2{ font-size: 1.4rem; }
+.blog-content h3{ font-size: 1.15rem; }
+.blog-content p{ margin-bottom: 1.1rem; color: var(--ink-text-soft); }
+.blog-content a{ color: var(--crimson); text-decoration: underline; }
+.blog-content img{ max-width: 100%; border-radius: 10px; margin: 1rem 0; }
+.blog-content ul, .blog-content ol{ margin: 0 0 1.1rem 1.4rem; color: var(--ink-text-soft); }
+.blog-content li{ margin-bottom: 0.4rem; }
+.blog-content blockquote{
+  border-left: 3px solid var(--crimson);
+  padding-left: 1rem;
+  margin: 1.2rem 0;
+  color: var(--ink-text-soft);
+  font-style: italic;
+}
+.blog-content code{
+  background: var(--paper-2);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+.blog-content pre{
+  background: var(--ink);
+  color: #EFEFE8;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-bottom: 1.1rem;
+}
+.blog-content pre code{ background: none; padding: 0; color: inherit; }
+
+.blog-back-link{ display: inline-block; margin-bottom: 1.6rem; font-weight: 600; color: var(--crimson); }
+
+@media screen and (max-width: 880px){
+  .blog-grid, .blog-teaser-grid{ grid-template-columns: 1fr; }
+}

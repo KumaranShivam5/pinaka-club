@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /OTP.html
+Disallow: /trial.html
+Disallow: /members-backup.html
+Disallow: /members-list.html
+Disallow: /content-template.html
+
+Sitemap: https://www.pinakarifleclub.com/sitemap.xml

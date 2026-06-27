@@ -19,7 +19,7 @@ function formatNewsDate(dateStr) {
 Vue.component('newsrow', {
     template: `
     <div class="cards news-card">
-        <img v-if="nrow.imageUrl" class="news-card-image" :src="nrow.imageUrl" alt="">
+        <img v-if="nrow.imageUrl" class="news-card-image" :src="nrow.imageUrl" :alt="nrow.title || 'News from PINAKA Rifle Shooting Club'">
         <span v-if="nrow.eventDate" class="news-card-date">{{ formattedDate }}</span>
         <h3 class="card-title">
             {{ nrow.title }}

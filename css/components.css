@@ -42,7 +42,7 @@
   color: var(--crimson);
 }
 .trust-item .icon svg{ width: 100%; height: 100%; }
-.trust-item h4{
+.trust-item h3{
   font-family: var(--serif);
   font-size: 1.02rem;
   color: var(--ink-text);
@@ -121,7 +121,7 @@
   background: var(--gold);
   border-radius: 50%;
 }
-.feature-card h4{ font-size: 1.02rem; color: #F7F2E4; margin-bottom: 0.35rem; }
+.feature-card h3{ font-size: 1.02rem; color: #F7F2E4; margin-bottom: 0.35rem; }
 .feature-card p{ font-size: 0.9rem; color: var(--slate); margin: 0; }
 
 /* =========================================================

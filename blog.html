@@ -13,6 +13,17 @@
     <meta name="description"
         content="Stories, updates and tips from PINAKA Rifle Shooting Club, Chatra — for shooters, students and parents.">
     <title>Blog | PINAKA Rifle Shooting Club, Chatra</title>
+    <link rel="canonical" href="https://www.pinakarifleclub.com/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | PINAKA Rifle Shooting Club, Chatra">
+    <meta property="og:description" content="Stories, updates and tips from PINAKA Rifle Shooting Club, Chatra — for shooters, students and parents.">
+    <meta property="og:url" content="https://www.pinakarifleclub.com/blog.html">
+    <meta property="og:image" content="https://www.pinakarifleclub.com/images/gallery/g3.jpg">
+    <meta property="og:site_name" content="PINAKA Rifle Shooting Club">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | PINAKA Rifle Shooting Club">
+    <meta name="twitter:description" content="Stories, updates and tips from PINAKA Rifle Shooting Club.">
+    <meta name="twitter:image" content="https://www.pinakarifleclub.com/images/gallery/g3.jpg">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
@@ -28,6 +39,17 @@
     <script src="js/firebase-init.js"></script>
     <script src="js/news-components.js"></script>
 
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pinakarifleclub.com/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.pinakarifleclub.com/blog.html" }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -53,20 +75,22 @@
         </div>
 
         <div class="hero-image">
-            <img src="images/logo/large-logo-dark.svg" alt="">
+            <img src="images/logo/large-logo-dark.svg" alt="PINAKA Rifle Shooting Club logo">
         </div>
         <div class="hero-title">
             <span class="eyebrow"><span class="ring"></span>Blog</span>
-            <div class="hero-title-h1">
+            <h1 class="hero-title-h1">
                 Stories from the range
-            </div>
-            <span class="hero-title-h2">
+            </h1>
+            <p class="hero-title-h2">
                 Updates, tips and behind-the-scenes from PINAKA — for shooters, students and parents.
-            </span>
+            </p>
         </div>
 
         <section class="section section-paper">
             <div class="section-inner">
+                <span class="eyebrow"><span class="ring"></span>Latest Posts</span>
+                <h2 class="heading-placeholder">Latest Posts</h2>
                 <div class="blog-grid" id="blog-grid">
                     <p class="blog-empty">Loading posts…</p>
                 </div>
@@ -75,9 +99,9 @@
 
         <div class="news-and-events" id="news-widget">
             <div class="cards-section-wrapper">
-                <div class="cards-section-header">
+                <h2 class="cards-section-header">
                     News and Events
-                </div>
+                </h2>
                 <div class="cards-wrapper news-cards-wrapper">
                     <newsrow v-for="el in news_list" :key="el.id" :nrow="el"></newsrow>
                 </div>
@@ -111,7 +135,7 @@
             <div class="cr">
                 &#169 Copyright Pinaka Rifle Shooting Club, 2024
                 <span>
-                    <br>Website designed and developed by <a href="www.kumaran.pro">Kumaran Shivam</a>
+                    <br>Website designed and developed by <a href="https://www.kumaran.pro" rel="noopener" target="_blank">Kumaran Shivam</a>
                 </span>
             </div>
         </div>

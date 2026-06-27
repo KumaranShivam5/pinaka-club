@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const b = doc.data();
-            const postUrl = 'https://www.pinakarifleclub.com/blog-view.html?id=' + doc.id;
+            const postUrl = 'https://www.pinakarifleclub.in/blog-view.html?id=' + doc.id;
             const postTitle = (b.title || 'Blog') + ' | PINAKA Rifle Shooting Club';
             const postDescription = b.excerpt || stripMarkdownExcerpt(b.markdown, 160);
-            const postImage = b.coverImageUrl || 'https://www.pinakarifleclub.com/images/gallery/g3.jpg';
+            const postImage = b.coverImageUrl || 'https://www.pinakarifleclub.in/images/gallery/g3.jpg';
 
             document.getElementById('page-title').innerText = postTitle;
             document.getElementById('meta-description').setAttribute('content', postDescription);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "publisher": {
                     "@type": "Organization",
                     "name": "PINAKA Rifle Shooting Club",
-                    "logo": { "@type": "ImageObject", "url": "https://www.pinakarifleclub.com/images/logo/large-logo-dark.svg" }
+                    "logo": { "@type": "ImageObject", "url": "https://www.pinakarifleclub.in/images/logo/large-logo-dark.svg" }
                 },
                 "mainEntityOfPage": postUrl,
                 "description": postDescription,

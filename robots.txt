@@ -8,4 +8,4 @@ Disallow: /members-backup.html
 Disallow: /members-list.html
 Disallow: /content-template.html
 
-Sitemap: https://www.pinakarifleclub.com/sitemap.xml
+Sitemap: https://www.pinakarifleclub.in/sitemap.xml

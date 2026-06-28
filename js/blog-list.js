@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.className = 'blog-card';
                 card.href = 'blog-view.html?id=' + doc.id;
                 card.innerHTML = `
-                    ${b.coverImageUrl ? `<img class="blog-card-image" src="${b.coverImageUrl}" alt="">` : ''}
+                    ${b.coverImageUrl ? `<img class="blog-card-image" src="${b.coverImageUrl}" alt="${escapeHtmlBlog(b.title || 'Blog post cover image')}">` : ''}
                     <div class="blog-card-body">
                         <span class="blog-card-date">${formatBlogDate(b.createdAt)}</span>
                         <h3>${escapeHtmlBlog(b.title || 'Untitled')}</h3>

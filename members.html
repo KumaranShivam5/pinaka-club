@@ -8,9 +8,20 @@
     <meta name="creator" content="kumaran">
     <meta name="author" content="saurabh kumar">
     <meta name="location" content="chatra jharkhand">
-    <meta name="keywords" content="rifle club, shooting, sports academy, rifle club in chatra, national championship, shooting training, pinaka, chatra, jharkhand">
-    <meta name="description" content="PINAKA Rifle Shooting club is one of the top performing rifle shooting and training academy and club in Chatra town in Chatra district of Jharkhand. The rifle shooting club is meant for all range of players from ameture shooting enthusiasts to professional national and international level shooting championship enthusiasts. We provide professional dedicated coaching and training. We also provide yoga and meditation practice in Chatra city">
-    <title>PINAKA Rifle Shooting club | Chatra. Jharkhand. Shooting Academy</title>
+    <meta name="keywords" content="rifle club shooters, state level shooters chatra, national shooters jharkhand, pinaka athletes, junior shooting champions">
+    <meta name="description" content="Meet the shooters of PINAKA Rifle Shooting Club, Chatra — state and national-level athletes training in 10m air rifle and air pistol under coach Saurabh Kumar.">
+    <title>Our Shooters | PINAKA Rifle Shooting Club, Chatra</title>
+    <link rel="canonical" href="https://www.pinakarifleclub.in/members.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Our Shooters | PINAKA Rifle Shooting Club, Chatra">
+    <meta property="og:description" content="Meet the shooters of PINAKA Rifle Shooting Club, Chatra — state and national-level athletes training in 10m air rifle and air pistol.">
+    <meta property="og:url" content="https://www.pinakarifleclub.in/members.html">
+    <meta property="og:image" content="https://www.pinakarifleclub.in/images/gallery/g1.webp">
+    <meta property="og:site_name" content="PINAKA Rifle Shooting Club">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Shooters | PINAKA Rifle Shooting Club">
+    <meta name="twitter:description" content="Meet the state and national-level athletes training at PINAKA Rifle Shooting Club.">
+    <meta name="twitter:image" content="https://www.pinakarifleclub.in/images/gallery/g1.webp">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
@@ -26,12 +37,23 @@
     <script src="js/firebase-init.js"></script>
     <script src="js/news-components.js"></script>
 
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pinakarifleclub.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Our Shooters", "item": "https://www.pinakarifleclub.in/members.html" }
+        ]
+    }
+    </script>
 </head>
 <body>
     <div class="main-container content-page" id="index-js-area">
         <div class="top-bar">
             <div class="top-logo">
-              <img src="images/logo/rect-logo-dark.svg" alt="">
+              <img src="images/logo/rect-logo-dark.svg" alt="PINAKA Rifle Shooting Club">
             </div>
             <div class="breadcrumb-toggle">
               <div class="bar bar1"></div>
@@ -51,18 +73,18 @@
           
           
         <div class="hero-image">
-            <img src="images/logo/large-logo-dark.svg" alt="">
+            <img src="images/logo/large-logo-dark.svg" alt="PINAKA Rifle Shooting Club logo">
         </div>
         <div class="hero-title">
-            <div class="hero-title-h1">
+            <h1 class="hero-title-h1">
                 Pinaka Rifle Shooting Club
-            </div> <br>
-            <span class="hero-title-h2">
+            </h1> <br>
+            <p class="hero-title-h2">
                 Aim Higher with Pinaka Rifle Shooting Academy.
-            </span>
+            </p>
         </div>
         <div class="hero-action">
-            <button class="primary-action skewed-button non-skew" onclick = 'window.location.href="login.html"' > Join PINAKA</button>
+            <a class="primary-action skewed-button non-skew" href="login.html">Join PINAKA</a>
         </div>
 
         <div class="hr">
@@ -73,7 +95,7 @@
        
         <div class="about">
             <header>
-                <h1 class="heading-placeholder">Our Shooters</h1>
+                <h2 class="heading-placeholder">Our Shooters</h2>
               </header>
               
               <div class="card-container card-fs-container">
@@ -85,9 +107,9 @@
         </div>
         <div class="news-and-events">
             <div class="cards-section-wrapper">
-                <div class="cards-section-header">
+                <h2 class="cards-section-header">
                     News and Events
-                </div>
+                </h2>
                 <div class="cards-wrapper news-cards-wrapper">
                     <newsrow v-for="el in news_list" :key="el.id" :nrow="el"></newsrow>
                 </div>
@@ -123,7 +145,7 @@
             <div class="cr">
                 &#169 Copyright Pinaka Rifle Shooting Club, 2024
                 <span>
-                    <br>Website designed and developed by <a href="www.kumaran.pro">Kumaran Shivam</a>
+                    <br>Website designed and developed by <a href="https://www.kumaran.pro" rel="noopener" target="_blank">Kumaran Shivam</a>
                 </span>
             </div>
         </div>

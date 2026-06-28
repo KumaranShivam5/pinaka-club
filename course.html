@@ -13,6 +13,17 @@
     <meta name="description"
         content="Courses at PINAKA Rifle Shooting Club, Chatra: Foundation for beginners, Bull's Eye for competitive shooters, and Yoga & Meditation for focus and discipline.">
     <title>Courses | PINAKA Rifle Shooting Club, Chatra</title>
+    <link rel="canonical" href="https://www.pinakarifleclub.in/course.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Courses | PINAKA Rifle Shooting Club, Chatra">
+    <meta property="og:description" content="Foundation, Bull's Eye, and Yoga & Meditation — courses at PINAKA Rifle Shooting Club for beginners through competitive shooters.">
+    <meta property="og:url" content="https://www.pinakarifleclub.in/course.html">
+    <meta property="og:image" content="https://www.pinakarifleclub.in/images/gallery/g2.webp">
+    <meta property="og:site_name" content="PINAKA Rifle Shooting Club">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Courses | PINAKA Rifle Shooting Club">
+    <meta name="twitter:description" content="Foundation, Bull's Eye, and Yoga & Meditation — courses for beginners through competitive shooters.">
+    <meta name="twitter:image" content="https://www.pinakarifleclub.in/images/gallery/g2.webp">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <script src="https://kit.fontawesome.com/b629a77575.js" crossorigin="anonymous"></script>
@@ -28,6 +39,17 @@
     <script src="js/firebase-init.js"></script>
     <script src="js/news-components.js"></script>
 
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pinakarifleclub.in/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Courses", "item": "https://www.pinakarifleclub.in/course.html" }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -53,28 +75,28 @@
         </div>
 
         <div class="hero-image">
-            <img src="images/logo/large-logo-dark.svg" alt="">
+            <img src="images/logo/large-logo-dark.svg" alt="PINAKA Rifle Shooting Club logo">
         </div>
         <div class="hero-title">
             <span class="eyebrow"><span class="ring"></span>Courses</span>
-            <div class="hero-title-h1">
+            <h1 class="hero-title-h1">
                 A course for every starting point
-            </div>
-            <span class="hero-title-h2">
+            </h1>
+            <p class="hero-title-h2">
                 Whether your child is picking up a rifle for the first time or already competing, there's a
                 structured path forward at PINAKA.
-            </span>
+            </p>
         </div>
         <div class="hero-action">
-            <button class="primary-action skewed-button non-skew" onclick='window.location.href="login.html"'>Join
-                PINAKA</button>
+            <a class="primary-action skewed-button non-skew" href="login.html">Join
+                PINAKA</a>
         </div>
 
         <section class="section section-paper">
             <div class="section-inner">
                 <div class="course-intro">
                     <span class="eyebrow"><span class="ring"></span>Our Courses</span>
-                    <h1 class="heading-placeholder">Our Courses</h1>
+                    <h2 class="heading-placeholder">Our Courses</h2>
                     <p>Every course includes full equipment, consumables and direct coaching — parents only need to
                         decide which pace fits their child.</p>
                 </div>
@@ -127,9 +149,9 @@
 
         <div class="news-and-events" id="news-widget">
             <div class="cards-section-wrapper">
-                <div class="cards-section-header">
+                <h2 class="cards-section-header">
                     News and Events
-                </div>
+                </h2>
                 <div class="cards-wrapper news-cards-wrapper">
                     <newsrow v-for="el in news_list" :key="el.id" :nrow="el"></newsrow>
                 </div>
@@ -163,7 +185,7 @@
             <div class="cr">
                 &#169 Copyright Pinaka Rifle Shooting Club, 2024
                 <span>
-                    <br>Website designed and developed by <a href="www.kumaran.pro">Kumaran Shivam</a>
+                    <br>Website designed and developed by <a href="https://www.kumaran.pro" rel="noopener" target="_blank">Kumaran Shivam</a>
                 </span>
             </div>
         </div>

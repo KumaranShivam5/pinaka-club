@@ -5,9 +5,9 @@
 Vue.component('cardrow', {
     template: `
 <div class="card card-fs">
-    <img :src="crow.photoUrl" alt="Athlete photo">
+    <img :src="crow.photoUrl" :alt="(crow.firstName || '') + ' ' + (crow.lastName || '') + ' — PINAKA shooter'">
     <div class="card-content details1">
-        <h2><i class="fas fa-user"></i> {{crow.firstName}} {{crow.lastName}}</h2>
+        <h3><i class="fas fa-user"></i> {{crow.firstName}} {{crow.lastName}}</h3>
         <p><i class="fas fa-birthday-cake"></i> Age: {{crow.age}}</p>
         <p><i class="fas fa-user-tag"></i> Category: {{crow.category}}</p>
     </div>

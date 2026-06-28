@@ -16,12 +16,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const b = doc.data();
-            document.getElementById('page-title').innerText = (b.title || 'Blog') + ' | PINAKA Rifle Shooting Club';
+            const postUrl = 'https://www.pinakarifleclub.in/blog-view.html?id=' + doc.id;
+            const postTitle = (b.title || 'Blog') + ' | PINAKA Rifle Shooting Club';
+            const postDescription = b.excerpt || stripMarkdownExcerpt(b.markdown, 160);
+            const postImage = b.coverImageUrl || 'https://www.pinakarifleclub.in/images/gallery/g3.jpg';
+
+            document.getElementById('page-title').innerText = postTitle;
+            document.getElementById('meta-description').setAttribute('content', postDescription);
+            document.getElementById('canonical-link').setAttribute('href', postUrl);
+            document.getElementById('og-title').setAttribute('content', postTitle);
+            document.getElementById('og-description').setAttribute('content', postDescription);
+            document.getElementById('og-url').setAttribute('content', postUrl);
+            document.getElementById('og-image').setAttribute('content', postImage);
+            document.getElementById('twitter-title').setAttribute('content', postTitle);
+            document.getElementById('twitter-description').setAttribute('content', postDescription);
+            document.getElementById('twitter-image').setAttribute('content', postImage);
+
+            document.getElementById('article-jsonld').textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": b.title || 'Untitled',
+                "image": postImage ? [postImage] : undefined,
+                "datePublished": b.createdAt && b.createdAt.toDate ? b.createdAt.toDate().toISOString() : undefined,
+                "dateModified": b.updatedAt && b.updatedAt.toDate ? b.updatedAt.toDate().toISOString() : undefined,
+                "author": { "@type": "Person", "name": "Saurabh Kumar" },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PINAKA Rifle Shooting Club",
+                    "logo": { "@type": "ImageObject", "url": "https://www.pinakarifleclub.in/images/logo/large-logo-dark.svg" }
+                },
+                "mainEntityOfPage": postUrl,
+                "description": postDescription,
+            });
 
             const renderedBody = marked.parse(b.markdown || '');
 
             article.innerHTML = `
-                ${b.coverImageUrl ? `<img class="blog-cover" src="${b.coverImageUrl}" alt="">` : ''}
+                ${b.coverImageUrl ? `<img class="blog-cover" src="${b.coverImageUrl}" alt="${escapeHtmlBlogView(b.title || 'Blog post cover image')}">` : ''}
                 <span class="blog-date">${formatBlogDate(b.createdAt)}</span>
                 <h1>${escapeHtmlBlogView(b.title || 'Untitled')}</h1>
                 <div class="blog-content">${renderedBody}</div>

@@ -7,7 +7,7 @@ BASE_URL = "https://pinaka.pythonanywhere.com"
 Vue.component(
     'cardrow', {
             template:
-            `<div class="gallery-img-item"><img :src="crow.photo" alt=""></div>`,
+            `<div class="gallery-img-item"><img :src="crow.photo" alt="Photo from PINAKA Rifle Shooting Club"></div>`,
             props: ["crow"]
         },
     );
@@ -15,7 +15,7 @@ Vue.component(
 Vue.component('blogteaser', {
     template: `
     <a class="blog-card" :href="'blog-view.html?id=' + post.id">
-        <img v-if="post.coverImageUrl" class="blog-card-image" :src="post.coverImageUrl" alt="">
+        <img v-if="post.coverImageUrl" class="blog-card-image" :src="post.coverImageUrl" :alt="post.title || 'Blog post cover image'">
         <div class="blog-card-body">
             <span class="blog-card-date">{{ formattedDate }}</span>
             <h3>{{ post.title || 'Untitled' }}</h3>

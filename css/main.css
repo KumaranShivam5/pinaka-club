@@ -78,6 +78,16 @@ button{ font-family: var(--sans); cursor: pointer; }
 
 img{ max-width: 100%; display: block; }
 
+.visually-hidden{
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- layout shell ---------- */
 
 .main-container{
@@ -100,7 +110,7 @@ img{ max-width: 100%; display: block; }
   align-items: center;
   gap: 0.55rem;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold-bright);
@@ -171,10 +181,13 @@ img{ max-width: 100%; display: block; }
 .breadcrumb-toggle{
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   cursor: pointer;
   z-index: 110;
-  padding: 0.4rem;
+  min-width: 48px;
+  min-height: 48px;
 }
 .bar{
   width: 24px; height: 2px;
@@ -392,7 +405,7 @@ button, .skewed-button{ transform: none; }
   flex-direction: column;
   gap: 0.3rem;
 }
-.footer .contact h3{ font-size: 1.2rem; color: #F7F2E4; margin-bottom: 0.1rem; }
+.footer .contact h3, .footer .contact h2{ font-size: 1.2rem; color: #F7F2E4; margin-bottom: 0.1rem; }
 .footer .contact .semi-bold{ color: var(--gold-bright); font-weight: 600; margin: 0 0 0.6rem; }
 .footer .contact .p-text{ color: var(--slate); font-size: 0.9rem; }
 .footer .contact a{ font-size: 0.92rem; }
@@ -486,7 +499,7 @@ button, .skewed-button{ transform: none; }
 .news-card-date{
   display: inline-block;
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gold-bright);
